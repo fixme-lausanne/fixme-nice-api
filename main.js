@@ -1,35 +1,38 @@
-var xhr = new XMLHttpRequest();
+function updateSpaceInformation() {
+    var xhr = new XMLHttpRequest();
 
-xhr.open("GET", "https://fixme.ch/cgi-bin/spaceapi.py", true);
+    xhr.open("GET", "https://fixme.ch/cgi-bin/spaceapi.py", true);
 
-xhr.onreadystatechange = function(){
+    xhr.onreadystatechange = function(){
 
-  if ( xhr.readyState == 4 ) {
+      if ( xhr.readyState == 4 ) {
 
-    var parse_text = jsonParse(xhr.responseText);
+        parse_text = jsonParse(xhr.responseText);
 
-    if ( xhr.status == 200 ) {
-        var isOpen = parse_text.open;
-        if (isOpen) {
-            var closeBlock = document.getElementById("close-block");
-            closeBlock.style.visibility = "visible";
+        if ( xhr.status == 200 ) {
+            isOpen = parse_text.open;
+            closeBlock = document.getElementById("close-block");
+            openBlock = document.getElementById("open-block");
+            if (isOpen) {
+                openBlock.style.visibility = "hidden";
+                closeBlock.style.visibility = "visible";
+            } else {
+                openBlock.style.visibility = "visible";
+                closeBlock.style.visibility = "hidden";
+            }
+
         } else {
-            var openBlock = document.getElementById("open-block");
-            closeBlock.style.visibility = "hidden";
+
+          document.body.innerHTML = "ERROR";
+
         }
 
+      }
 
-    } else {
+    };
 
-      document.body.innerHTML = "ERROR";
-
-    }
-
-  }
-
-};
-
-xhr.send(null);
+    xhr.send(null);
+}
 
 var baseUrl = ""
 //TODO get twitter url
