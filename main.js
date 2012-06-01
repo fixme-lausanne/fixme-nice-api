@@ -37,10 +37,13 @@ function updateSpaceInformation() {
 var baseUrl = "http://62.220.135.249"
 //TODO get twitter url
 function openSpace() {
-    var hoursOpen = document.hoursform.hours.value;
+    var hoursForm = document.hoursform.hours;
+    var hoursOpen = hoursForm.value;
     var hoursOpen = Math.floor(hoursOpen);
-    if (isNaN(hoursOpen) || hoursOpen < 0) {
-        //TODO early return or throw exception
+    if (isNaN(hoursOpen) || hoursOpen < 1) {
+        alert("Please input a valid number of hours");
+        hoursForm.value = "";
+        return;
     }
     var requestUrl = baseUrl + "?do=custom&hours=" + hoursOpen;
     var requestObject = new XMLHttpRequest();
