@@ -26,4 +26,22 @@
 
     xhr.send(null);
 
+    function openSpace(hoursOpen) {
+        hoursOpen = Math.floor(hoursOpen);
+        if (isNaN(hoursOpen) || hoursOpen < 0) {
+            //TODO early return or throw exception
+        }
+        var requestUrl = baseUrl + "?do=custom&hours=" + hoursOpen;
+        var requestObject = new XMLHttpRequest();
+        requestObject.open("GET", requestUrl, true);
+        requestObject.send(null);
+    }
+
+    function closeSpace() {
+        var requestUrl = baseUrl + "?do=close";
+        var requestObject = new XMLHttpRequest();
+        requestObject.open("GET", requestUrl, true);
+        requestObject.send(null);
+    }
+
     </script>
