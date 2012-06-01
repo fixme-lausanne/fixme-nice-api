@@ -39,3 +39,7 @@ html {
     padding:5px 15px;
     border-radius: 5px;
 }
+
+#close-block {
+    visibility: hidden;
+}
