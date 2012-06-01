@@ -10,12 +10,14 @@ xhr.onreadystatechange = function(){
 
     if ( xhr.status == 200 ) {
         isOpen = parse_text.open;
+        closeBlock = document.getElementById("close-block");
+        openBlock = document.getElementById("open-block");
         if (isOpen) {
-            closeBlock = document.getElementById("close-block");
-            closeBlock.style.visibility = "hidden";
-        } else {
-            openBlock = document.getElementById("open-block");
             openBlock.style.visibility = "hidden";
+            closeBlock.style.visibility = "visible";
+        } else {
+            openBlock.style.visibility = "visible";
+            closeBlock.style.visibility = "hidden";
         }
 
 
