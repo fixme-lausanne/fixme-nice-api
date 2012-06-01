@@ -6,12 +6,12 @@ xhr.onreadystatechange = function(){
 
   if ( xhr.readyState == 4 ) {
 
-    parse_text = jsonParse(xhr.responseText);
+    var parse_text = jsonParse(xhr.responseText);
 
     if ( xhr.status == 200 ) {
-        isOpen = parse_text.open;
-        closeBlock = document.getElementById("close-block");
-        openBlock = document.getElementById("open-block");
+        var isOpen = parse_text.open;
+        var closeBlock = document.getElementById("close-block");
+        var openBlock = document.getElementById("open-block");
         if (isOpen) {
             openBlock.style.visibility = "hidden";
             closeBlock.style.visibility = "visible";
@@ -33,10 +33,11 @@ xhr.onreadystatechange = function(){
 
 xhr.send(null);
 
+var baseUrl = ""
 //TODO get twitter url
 function openSpace() {
-    hoursOpen = document.hoursform.hours.value;
-    hoursOpen = Math.floor(hoursOpen);
+    var hoursOpen = document.hoursform.hours.value;
+    var hoursOpen = Math.floor(hoursOpen);
     if (isNaN(hoursOpen) || hoursOpen < 0) {
         //TODO early return or throw exception
     }
