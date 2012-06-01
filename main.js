@@ -34,7 +34,7 @@ function updateSpaceInformation() {
     xhr.send(null);
 }
 
-var baseUrl = "http://62.220.135.249/"
+var baseUrl = "http://62.220.135.249"
 //TODO get twitter url
 function openSpace() {
     var hoursOpen = document.hoursform.hours.value;
@@ -54,8 +54,9 @@ function closeSpace() {
     requestObject.open("GET", requestUrl, true);
     requestObject.onreadystatechange = function() {
         if (requestObject.readyState == 4) {
-            requestObject.send(null);
+            alert("home !!!!");
         }
     }
+    requestObject.send(null);
 }
 
