@@ -10,13 +10,11 @@ xhr.onreadystatechange = function(){
 
     if ( xhr.status == 200 ) {
         var isOpen = parse_text.open;
-        var closeBlock = document.getElementById("close-block");
-        var openBlock = document.getElementById("open-block");
         if (isOpen) {
-            openBlock.style.visibility = "hidden";
+            var closeBlock = document.getElementById("close-block");
             closeBlock.style.visibility = "visible";
         } else {
-            openBlock.style.visibility = "visible";
+            var openBlock = document.getElementById("open-block");
             closeBlock.style.visibility = "hidden";
         }
 

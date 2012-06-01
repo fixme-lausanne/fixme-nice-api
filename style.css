@@ -13,6 +13,7 @@ html {
 }
 
 .form-block {
+    visibility:hidden;
     background-color:black;
     border-width: 3px;
     border-color: green;
