@@ -40,6 +40,19 @@ html {
     border-radius: 5px;
 }
 
+.form-block .text-input {
+    border-style: groove;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: #009100;
+    font-size:20px;
+    border-color: #006100;
+    border-width:3px;
+    border-radius: 5px;
+    width:40%;
+    text-align:center;
+    padding:4px;
+}
+
 #close-block {
     visibility: hidden;
 }
