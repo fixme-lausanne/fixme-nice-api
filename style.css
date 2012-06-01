@@ -1,0 +1,40 @@
+html {
+    background-image: url('http://fixme.ch/w/images/d/df/Pxe_fixme_splash.png');
+	background-size: cover;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5000;
+}
+
+.form-block {
+    background-color:black;
+    border-width: 3px;
+    border-color: green;
+    border-style: groove;
+
+    width:600px;
+    height:100px;
+    margin: 0px auto;
+    margin-top: 20%;
+
+    text-align:center;
+    padding:15px;
+
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.form-block .button {
+    margin-top: 30px;
+    height: 50px;
+    width: 110px;
+    border-style: groove;
+    border-width: 2px;
+    visibility: visible;
+}
+
