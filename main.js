@@ -1,6 +1,6 @@
 function onPageLoad() {
     //add the refresh every 5 minutes
-    updateSpaceInformation
+    updateSpaceInformation()
 }
 
 function updateSpaceInformation() {
