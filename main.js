@@ -1,6 +1,8 @@
 function onPageLoad() {
     //add the refresh every 5 minutes
+    updateSpaceInformation
 }
+
 function updateSpaceInformation() {
     var xhr = new XMLHttpRequest();
 
