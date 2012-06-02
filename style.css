@@ -63,16 +63,16 @@ html {
     vertical-align:center;
     font-size:40;
     font-weight:bold;
-    padding:10px;
-    width:30px;
+    padding:8%;
+    width:30%;
     height:50px;
     border-radius:10px;
     float:left;
-    margin: 2.5px;
+    margin: 2%;
 }
 
 .numbers {
-    width:150px;
+    width:120px;
     margin:0px auto;
 }
 
