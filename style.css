@@ -65,6 +65,7 @@ html {
     font-weight:bold;
     padding:10px;
     width:30px;
+    height:50px;
     border-radius:10px;
     float:left;
     margin: 2.5px;
@@ -72,7 +73,6 @@ html {
 
 .numbers {
     width:150px;
-    height:20px;
     margin:0px auto;
 }
 
