@@ -5,17 +5,23 @@
       <script src="json_sans_eval.js"></script>
   </head>
   <body onload="updateSpaceInformation()">
-    <div align="center"><img src='http://fixme.ch/w/images/d/df/Pxe_fixme_splash.png' class="bg"></div>
+    <div align="center">
+      <img src='http://fixme.ch/w/images/d/df/Pxe_fixme_splash.png' class="bg"></div>
+
     <div class='form-block' id="open-block">
+      The space is now open.
       <form name="hoursform">
         <input name="hours" size="48" class="text-input" maxlength=2>
         <br>
         <input type="button" onclick="openSpace()" value="Open" class="button">
       </form>
     </div>
+
     <div class='form-block' id="close-block">
+      The space is now close.
       <form>
         <input type="button" onclick="closeSpace()" value="Close" class="button"/>
       </form>
     </div>
+
   </body>

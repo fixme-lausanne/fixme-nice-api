@@ -11,13 +11,13 @@ function updateSpaceInformation() {
       if ( xhr.readyState == 4 ) {
         try {
             var parsed_text = jsonParse(xhr.responseText);
-        } catch (e) {
+        } catch (err) {
             //json parsing failed
             document.body.innerHTML = "ERROR";
             return
         }
         if ( xhr.status == 200 ) {
-            var isOpen = parse_text.open;
+            var isOpen = parsed_text.open;
             var closeBlock = document.getElementById("close-block");
             var openBlock = document.getElementById("open-block");
             if (isOpen) {
@@ -41,8 +41,7 @@ function updateSpaceInformation() {
     xhr.send(null);
 }
 
-var baseUrl = "http://62.220.135.249"
-//TODO get twitter url
+var baseUrl = "https://fixme.ch/cgi-bin/twitter.pl"
 function openSpace() {
     var hoursForm = document.hoursform.hours;
     var hoursOpen = hoursForm.value;

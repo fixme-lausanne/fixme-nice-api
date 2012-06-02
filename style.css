@@ -13,6 +13,8 @@ html {
 }
 
 .form-block {
+    color:green;
+    font-size:20;
     visibility:hidden;
     background-color:black;
     border-width: 3px;
@@ -26,13 +28,6 @@ html {
     vertical-align:middle;
     padding:30px;
     position:absolute;
-    opacity:0;
-    transition:opacity 1s linear;*
-    transition-duration: 1s;
-}
-
-.form-bloc:hover {
-  opacity:1;
 }
 
 .form-block .button {
