@@ -22,7 +22,7 @@ html {
     border-color: green;
     border-style: groove;
     width:60%;
-    height:100px;
+    height:160px;
     margin-top: 20%;
     margin-left:16%;
     text-align:center;
@@ -55,3 +55,19 @@ html {
     color:black;
     text-align:center;
 }
+
+.number {
+    background-color:#009100;
+    color:white;
+    text-align:center;
+    vertical-align:center;
+    font-size:40;
+    font-weight:bold;
+    padding:10px;
+    width:30px;
+    border-radius:10px;
+    float:left;
+    margin: 2.5px;
+}
+
+
