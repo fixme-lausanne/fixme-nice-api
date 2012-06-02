@@ -63,7 +63,7 @@ function closeSpace() {
     requestObject.open("GET", requestUrl, true);
     requestObject.onreadystatechange = function() {
         if (requestObject.readyState == 4) {
-            alert("home !!!!");
+            alert("Request sent");
         }
     }
     requestObject.send(null);
