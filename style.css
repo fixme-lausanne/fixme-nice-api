@@ -13,6 +13,7 @@ html {
 }
 
 .form-block {
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     color:green;
     font-size:20;
     visibility:hidden;
@@ -32,7 +33,6 @@ html {
 
 .form-block .button {
     border-style: groove;
-    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     background: #009100;
     font-size:20px;
     border-color: #006100;
