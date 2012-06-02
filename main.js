@@ -6,16 +6,20 @@ function updateSpaceInformation() {
 
     xhr.open("GET", "https://fixme.ch/cgi-bin/spaceapi.py", true);
 
-    xhr.onreadystatechange = function(){
+    xhr.onreadystatechange = function() {
 
       if ( xhr.readyState == 4 ) {
-
-        parse_text = jsonParse(xhr.responseText);
-
+        try {
+            var parsed_text = jsonParse(xhr.responseText);
+        } catch (e) {
+            //json parsing failed
+            document.body.innerHTML = "ERROR";
+            return
+        }
         if ( xhr.status == 200 ) {
-            isOpen = parse_text.open;
-            closeBlock = document.getElementById("close-block");
-            openBlock = document.getElementById("open-block");
+            var isOpen = parse_text.open;
+            var closeBlock = document.getElementById("close-block");
+            var openBlock = document.getElementById("open-block");
             if (isOpen) {
                 openBlock.style.visibility = "hidden";
                 closeBlock.style.visibility = "visible";
