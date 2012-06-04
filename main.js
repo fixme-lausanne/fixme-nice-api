@@ -34,7 +34,7 @@ function updateSpaceInformation() {
                 openBlock.style.visibility = "visible";
                 closeBlock.style.visibility = "hidden";
             }
-            var diff_time = new Date(closing_time.getTime() - new Date().getTime());
+            var diff_time = new Date(Number(closing_time.getTime()) - new Date().getTime());
             update_date(diff_time);
         } else {
             displayError();
@@ -77,7 +77,8 @@ function closeSpace() {
 }
 
 function update_date(date) {
-    var hours = String(date.getHours());
+    alert("Diff date is :" + date)
+    var hours = String(date.getHours() - 1);
     if (hours.length == 1) {
         hours = "0" + hours;
     }
