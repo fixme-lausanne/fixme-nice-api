@@ -35,8 +35,12 @@ function updateSpaceInformation() {
                 openBlock.style.visibility = "visible";
                 closeBlock.style.visibility = "hidden";
             }
-            var diff_time = new Date(Number(closing_time.getTime()) - new Date().getTime());
-            update_date(diff_time);
+            var diff_time = Number(closing_time.getTime()) - new Date().getTime();
+            if (diff_time > 0) {
+                update_date(new Date(diff_time));
+            } else {
+                update_date(new Date(0));
+            }
         } else {
             displayError();
         }

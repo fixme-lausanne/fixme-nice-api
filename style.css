@@ -42,6 +42,10 @@ html {
     border-radius: 5px;
 }
 
+.form-block .button:active {
+    background: #006100;
+}
+
 .form-block .text-input {
     border-style: groove;
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
