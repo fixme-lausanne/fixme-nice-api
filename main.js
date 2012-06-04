@@ -77,7 +77,6 @@ function closeSpace() {
 }
 
 function update_date(date) {
-    alert("Diff date is :" + date)
     var hours = String(date.getHours() - 1);
     if (hours.length == 1) {
         hours = "0" + hours;
