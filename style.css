@@ -57,6 +57,8 @@ html {
 }
 
 .number {
+    float:left;
+    display:inline;
     text-align:center;
     background-color:#009100;
     color:white;
@@ -70,9 +72,9 @@ html {
 }
 
 .numbers {
+    margin: 0px auto;
     height:350px;
-    width:50px;
-    margin:0px auto;
+    width:270px;
 }
 
 
