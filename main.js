@@ -87,16 +87,24 @@ function update_date(date) {
         hours = "0" + hours;
     }
     var first_char = hours.charAt(0);
-    document.getElementById("first-hour").innerText = first_char;
+    setTextForId("first-hour", first_char);
     var second_char = hours.charAt(1);
-    document.getElementById("second-hour").innerText = second_char;
+    setTextForId("second-hour", second_char);
 
     var minutes = String(date.getMinutes());
     if (minutes.length == 1) {
         minutes = "0" + minutes;
     }
     var first_char = minutes.charAt(0);
-    document.getElementById("first-minute").innerText = first_char;
+    setTextForId("first-minute", first_char);
     var second_char = minutes.charAt(1);
-    document.getElementById("second-minute").innerText = first_char;
+    setTextForId("second-minute", first_char);
+}
+
+function setTextForId(id, text) {
+    if(document.all){
+         document.getElementById(id).innerText = text;
+    } else{
+        document.getElementById(id).textContent = text;
+    }
 }

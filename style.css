@@ -75,6 +75,9 @@ html {
     margin: 4px;
 }
 
+#separator {
+    background: black;
+}
 .numbers {
     margin: 0px auto;
     height:350px;
