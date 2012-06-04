@@ -1,6 +1,7 @@
 function onPageLoad() {
     //TODO add the refresh every 5 minutes
     updateSpaceInformation();
+    refresh_counter = setTimeout("onPageLoad()", 5 * 60 *1000);
 }
 
 var apiUrl = "https://fixme.ch/cgi-bin/spaceapi.py";
