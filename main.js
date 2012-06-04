@@ -34,6 +34,7 @@ function updateSpaceInformation() {
             } else {
                 openBlock.style.visibility = "visible";
                 closeBlock.style.visibility = "hidden";
+                document.hoursform.hours.focus();
             }
             var diff_time = Number(closing_time.getTime()) - new Date().getTime();
             if (diff_time > 0) {
