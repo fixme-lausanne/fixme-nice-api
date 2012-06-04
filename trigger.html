@@ -17,9 +17,9 @@
     <div class='form-block' id="open-block">
       The space is now closed.
       <form name="hoursform">
-        <input name="hours" size="48" class="text-input" maxlength=2>
+        <input name="hours" size="48" class="text-input" maxlength=2 onkeyup="checkHours(this)">
         <br>
-        <input type="button" onclick="openSpace()" value="Open" class="button">
+        <input type="button" onclick="openSpace()" value="Open" class="button" id="openbutton" disabled>
       </form>
     </div>
 

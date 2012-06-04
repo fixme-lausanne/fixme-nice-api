@@ -54,15 +54,21 @@ function displayError() {
 }
 
 var baseUrl = "https://fixme.ch/cgi-bin/twitter.pl";
+function checkHours(hoursForm) {
+    var hoursOpen = hoursForm.value;
+    var hoursOpen = Math.floor(hoursOpen);
+    var formParent = hoursForm.parentElement;
+    //TODO throw error if parentElement is null
+    var openButton = formParent.openbutton;
+    if (isNaN(hoursOpen) || hoursOpen < 1) {
+        openButton.disabled = true;
+    } else {
+        openButton.disabled = false;
+    }
+}
 function openSpace() {
     var hoursForm = document.hoursform.hours;
     var hoursOpen = hoursForm.value;
-    var hoursOpen = Math.floor(hoursOpen);
-    if (isNaN(hoursOpen) || hoursOpen < 1) {
-        alert("Please input a valid number of hours");
-        hoursForm.value = "";
-        return;
-    }
     var requestUrl = baseUrl + "?do=custom&hours=" + hoursOpen;
     var requestObject = new XMLHttpRequest();
     requestObject.open("GET", requestUrl, true);
