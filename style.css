@@ -42,6 +42,10 @@ html {
     border-radius: 5px;
 }
 
+.button[disabled] {
+    background: #003100;
+}
+
 .form-block .button:active {
     background: #006100;
 }
