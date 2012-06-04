@@ -7,7 +7,7 @@ var apiUrl = "https://fixme.ch/cgi-bin/spaceapi.py";
 function updateSpaceInformation() {
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "https://fixme.ch/cgi-bin/spaceapi.py", true);
+    xhr.open("GET", apiUrl, true);
 
     xhr.onreadystatechange = function() {
 
@@ -16,8 +16,12 @@ function updateSpaceInformation() {
             try {
                 var parsed_text = jsonParse(xhr.responseText);
                 var isOpen = parsed_text.open;
+                var open_duration = parsed_text.duration;
+                var closing_time = new Date(Number(parsed_text.lastchange) * 1000)
+                closing_time.setHours(closing_time.getHours() + open_duration);
             } catch (err) {
                 //json parsing failed or doesn't contain the correct element
+                alert(err);
                 displayError();
                 return;
             }
@@ -30,6 +34,8 @@ function updateSpaceInformation() {
                 openBlock.style.visibility = "visible";
                 closeBlock.style.visibility = "hidden";
             }
+            var diff_time = new Date(closing_time.getTime() - new Date().getTime());
+            update_date(diff_time);
         } else {
             displayError();
         }
@@ -70,3 +76,22 @@ function closeSpace() {
     requestObject.send(null);
 }
 
+function update_date(date) {
+    var hours = String(date.getHours());
+    if (hours.length == 1) {
+        hours = "0" + hours;
+    }
+    var first_char = hours.charAt(0);
+    document.getElementById("first-hour").innerText = first_char;
+    var second_char = hours.charAt(1);
+    document.getElementById("second-hour").innerText = second_char;
+
+    var minutes = String(date.getMinutes());
+    if (minutes.length == 1) {
+        minutes = "0" + minutes;
+    }
+    var first_char = minutes.charAt(0);
+    document.getElementById("first-minute").innerText = first_char;
+    var second_char = minutes.charAt(1);
+    document.getElementById("second-minute").innerText = first_char;
+}

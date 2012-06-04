@@ -57,22 +57,21 @@ html {
 }
 
 .number {
+    text-align:center;
     background-color:#009100;
     color:white;
-    text-align:center;
-    vertical-align:center;
     font-size:40;
     font-weight:bold;
-    padding:8%;
-    width:30%;
-    height:50px;
+    padding:10px;
+    width:25px;
+    height:45px;
     border-radius:10px;
-    float:left;
-    margin: 2%;
+    margin: 4px;
 }
 
 .numbers {
-    width:120px;
+    height:350px;
+    width:50px;
     margin:0px auto;
 }
 
