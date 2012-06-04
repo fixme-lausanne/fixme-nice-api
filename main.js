@@ -50,7 +50,8 @@ function updateSpaceInformation() {
 }
 
 function displayError() {
-    document.body.innerHTML = "ERROR";
+    document.body.style.background = "red"
+    document.body.innerHTML = "Error connecting to fixme server";
 }
 
 var baseUrl = "https://fixme.ch/cgi-bin/twitter.pl";
@@ -66,22 +67,34 @@ function checkHours(hoursForm) {
         openButton.disabled = false;
     }
 }
+
 function openSpace() {
     var hoursForm = document.hoursform.hours;
     var hoursOpen = hoursForm.value;
-    var requestUrl = baseUrl + "?do=custom&hours=" + hoursOpen;
-    var requestObject = new XMLHttpRequest();
-    requestObject.open("GET", requestUrl, true);
-    requestObject.send(null);
+    var confirm_return = confirm("Are you sure you want to open the hackerspace ?");
+    if (confirm_return) {
+        var requestUrl = baseUrl + "?do=custom&hours=" + hoursOpen;
+        var requestObject = new XMLHttpRequest();
+        requestObject.open("GET", requestUrl, true);
+        requestObject.send(null);
+    }
 }
 
 function closeSpace() {
     var requestUrl = baseUrl + "?do=close";
     var requestObject = new XMLHttpRequest();
+    var confirm_value = confirm("Are you sure you want to open the space ?");
+    if (!confirm_value) {
+        return;
+    }
     requestObject.open("GET", requestUrl, true);
     requestObject.onreadystatechange = function() {
         if (requestObject.readyState == 4) {
-            alert("Request sent");
+            if (request.status == 200) {
+                alert("Request was sent correctly.");
+            } else {
+                alert("Request had an issue, wait a moment then retry please.");
+            }
         }
     }
     requestObject.send(null);
