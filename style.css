@@ -42,12 +42,16 @@ html {
     border-radius: 5px;
 }
 
+.form-block .button:active {
+    background: #006100;
+}
+
 .button[disabled] {
     background: #003100;
 }
 
-.form-block .button:active {
-    background: #006100;
+.button[disabled]:active {
+    background: #003100;
 }
 
 .form-block .text-input {
