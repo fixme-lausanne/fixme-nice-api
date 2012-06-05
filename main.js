@@ -84,7 +84,7 @@ function openSpace() {
 function closeSpace() {
     var requestUrl = baseUrl + "?do=close";
     var requestObject = new XMLHttpRequest();
-    var confirm_value = confirm("Are you sure you want to open the space ?");
+    var confirm_value = confirm("Are you sure you want to close the space ?");
     if (!confirm_value) {
         return;
     }
