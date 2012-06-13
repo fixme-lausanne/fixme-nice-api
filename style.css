@@ -16,7 +16,7 @@ html {
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     color:green;
     font-size:20;
-    visibility:none;
+    visibility:hidden;
     background-color:black;
     border-width: 3px;
     border-color: green;
