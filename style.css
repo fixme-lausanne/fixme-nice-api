@@ -100,9 +100,11 @@ label {
     border-bottom:1px solid #009100;
     margin-left:0px;
 }
+
 fieldset.form-block {
     height:214px;
 }
+
 fieldset input[type=text], fieldset input[type=password] {
     width:200px;
     font-size:13px;
