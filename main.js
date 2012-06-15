@@ -17,9 +17,9 @@ function updateSpaceInformation() {
             try {
                 var parsed_text = jsonParse(xhr.responseText);
                 var isOpen = parsed_text.open;
-                var open_duration = parsed_text.duration;
-                var closing_time = new Date(Number(parsed_text.lastchange) * 1000)
-                closing_time.setHours(closing_time.getHours() + open_duration);
+                //convert to us
+                var open_duration = parsed_text.duration * 60 * 60 * 1000;
+                var closing_time = parsed_text.lastchange * 1000 + open_duration;
             } catch (err) {
                 //json parsing failed or doesn't contain the correct element
                 alert(err);
@@ -36,7 +36,7 @@ function updateSpaceInformation() {
                 closeBlock.style.visibility = "hidden";
                 document.hoursform.hours.focus();
             }
-            var diff_time = Number(closing_time.getTime()) - new Date().getTime();
+            var diff_time = closing_time - new Date().getTime();
             if (diff_time > 0) {
                 update_date(new Date(diff_time));
             } else {
@@ -102,7 +102,7 @@ function closeSpace() {
 }
 
 function update_date(date) {
-    var hours = String(date.getHours() - 1);
+    var hours = String(date.getUTCHours());
     if (hours.length == 1) {
         hours = "0" + hours;
     }
@@ -111,7 +111,7 @@ function update_date(date) {
     var second_char = hours.charAt(1);
     setTextForId("second-hour", second_char);
 
-    var minutes = String(date.getMinutes());
+    var minutes = String(date.getUTCMinutes());
     if (minutes.length == 1) {
         minutes = "0" + minutes;
     }
