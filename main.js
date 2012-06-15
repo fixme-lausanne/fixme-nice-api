@@ -1,5 +1,4 @@
 function onPageLoad() {
-    //TODO add the refresh every 5 minutes
     updateSpaceInformation();
     refresh_counter = setTimeout("onPageLoad()", 5 * 60 *1000);
 }
@@ -59,9 +58,13 @@ var baseUrl = "https://fixme.ch/cgi-bin/twitter.pl";
 function checkHours(hoursForm) {
     var hoursOpen = hoursForm.value;
     var hoursOpen = Math.floor(hoursOpen);
-    var formParent = hoursForm.parentElement;
-    //TODO throw error if parentElement is null
-    var openButton = formParent.openbutton;
+    try {
+        var formParent = hoursForm.parentElement;
+        var openButton = formParent.openbutton;
+    } catch (e) {
+        //we are missing element on the page, we better have to reload the page
+        window.location.reload()
+    }
     if (isNaN(hoursOpen) || hoursOpen < 1) {
         openButton.disabled = true;
     } else {
