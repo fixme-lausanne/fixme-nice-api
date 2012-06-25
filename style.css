@@ -34,7 +34,7 @@ html {
 .form-block .button {
     border-style: groove;
     background: #009100;
-    font-size:15px;
+    font-size:20px;
     border-color: #006100;
     border-width:3px;
     padding:5px 15px;
@@ -92,54 +92,4 @@ html {
     width:270px;
 }
 
-label {
-    width:250px;
-    text-align:right;
-    display:block;
-    float:left;
-    border-bottom:1px solid #009100;
-    margin-left:0px;
-}
 
-fieldset.form-block {
-    height:214px;
-}
-
-fieldset input[type=text], fieldset input[type=password] {
-    width:200px;
-    font-size:13px;
-    border:1px solid #009100;
-    -webkit-border-radius: 16px;
-    -moz-border-radius: 16px;
-    border-radius: 16px;
-    padding-left:10px;
-    padding-right:10px;
-}
-
-fieldset legend {
-    -webkit-border-radius: 16px;
-    -moz-border-radius: 16px;
-    border-radius: 16px;
-    padding:5px 10px 5px 10px;
-    color:#fff;
-    background-color:#009100;
-    text-align:left;
-}
-
-.error {
-    border:#009100;
-    color:#ff3300;
-    background-color:#000;
-    font-weight:bold;
-    display:block;
-    position:absolute;
-}
-
-a {
-  color:#009100;
-  text-decoration:underline;
-}
-
-a:hover {
-  text-decoration:none;
-}

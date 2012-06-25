@@ -16,9 +16,9 @@ function updateSpaceInformation() {
             try {
                 var parsed_text = jsonParse(xhr.responseText);
                 var isOpen = parsed_text.open;
-                //convert to us
-                var open_duration = parsed_text.duration * 60 * 60 * 1000;
-                var closing_time = parsed_text.lastchange * 1000 + open_duration;
+                var open_duration = parsed_text.duration;
+                var closing_time = new Date(Number(parsed_text.lastchange) * 1000);
+                closing_time.setHours(closing_time.getHours() + open_duration);
             } catch (err) {
                 //json parsing failed or doesn't contain the correct element
                 alert(err);
@@ -35,7 +35,7 @@ function updateSpaceInformation() {
                 closeBlock.style.visibility = "hidden";
                 document.hoursform.hours.focus();
             }
-            var diff_time = closing_time - new Date().getTime();
+            var diff_time = Number(closing_time.getTime()) - new Date().getTime();
             if (diff_time > 0) {
                 update_date(new Date(diff_time));
             } else {
@@ -50,7 +50,7 @@ function updateSpaceInformation() {
 }
 
 function displayError() {
-    document.body.style.background = "red"
+    document.body.style.background = "red";
     document.body.innerHTML = "Error connecting to fixme server";
 }
 
@@ -58,13 +58,9 @@ var baseUrl = "https://fixme.ch/cgi-bin/twitter.pl";
 function checkHours(hoursForm) {
     var hoursOpen = hoursForm.value;
     var hoursOpen = Math.floor(hoursOpen);
-    try {
-        var formParent = hoursForm.parentElement;
-        var openButton = formParent.openbutton;
-    } catch (e) {
-        //we are missing element on the page, we better have to reload the page
-        window.location.reload()
-    }
+    var formParent = hoursForm.parentElement;
+    //TODO throw error if parentElement is null
+    var openButton = formParent.openbutton;
     if (isNaN(hoursOpen) || hoursOpen < 1) {
         openButton.disabled = true;
     } else {
@@ -105,7 +101,7 @@ function closeSpace() {
 }
 
 function update_date(date) {
-    var hours = String(date.getUTCHours());
+    var hours = String(date.getHours() - 1);
     if (hours.length == 1) {
         hours = "0" + hours;
     }
@@ -114,7 +110,7 @@ function update_date(date) {
     var second_char = hours.charAt(1);
     setTextForId("second-hour", second_char);
 
-    var minutes = String(date.getUTCMinutes());
+    var minutes = String(date.getMinutes());
     if (minutes.length == 1) {
         minutes = "0" + minutes;
     }
