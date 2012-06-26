@@ -12,11 +12,10 @@ html {
     z-index: -5000;
 }
 
-.form-block {
+.central-block {
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     color:green;
     font-size:20;
-    visibility:hidden;
     background-color:black;
     border-width: 3px;
     border-color: green;
@@ -31,7 +30,7 @@ html {
     position:absolute;
 }
 
-.form-block .button {
+div .button {
     border-style: groove;
     background: #009100;
     font-size:20px;
@@ -42,19 +41,19 @@ html {
     border-radius: 5px;
 }
 
-.form-block .button:active {
+div .button:active {
     background: #006100;
 }
 
-.button[disabled] {
+div .button[disabled] {
     background: #003100;
 }
 
-.button[disabled]:active {
+div .button[disabled]:active {
     background: #003100;
 }
 
-.form-block .text-input {
+div .text-input {
     border-style: groove;
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     background: #009100;
@@ -91,5 +90,3 @@ html {
     height:350px;
     width:270px;
 }
-
-
