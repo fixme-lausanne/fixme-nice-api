@@ -1,17 +1,14 @@
+/*
+simple way to have an unified background that cover all the screen.
+*/
 html {
     background-image: url('http://fixme.ch/w/images/d/df/Pxe_fixme_splash.png');
 	background-size: cover;
 }
 
-.bg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -5000;
-}
-
+/*
+Legend act here as a menu, give the same green border than central-block.
+*/
 legend {
     padding: 1px 10px;
     background: black;
@@ -22,6 +19,9 @@ legend {
     border-style: groove;
 }
 
+/*
+Main app block, central.
+*/
 .central-block {
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     color:green;
@@ -40,6 +40,9 @@ legend {
     position:absolute;
 }
 
+/*
+match all the button
+*/
 div .button, button, input[type=submit] {
     border-style: groove;
     background: #009100;
@@ -51,6 +54,7 @@ div .button, button, input[type=submit] {
     color:black;
     border-radius: 5px;
 }
+
 
 div .button:active, button:active, input[type=submit]:active {
     background: #006100;
@@ -64,7 +68,7 @@ div .button[disabled]:active, button[disabled]:active, input[type=submit][disabl
     background: #003100;
 }
 
-div .text-input {
+.text-input {
     border-style: groove;
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     background: #009100;
