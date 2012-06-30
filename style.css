@@ -37,23 +37,24 @@ div .button, button, input[type=submit] {
     border-color: #006100;
     border-width:3px;
     padding:5px 15px;
+    margin:5px 15px;
     color:black;
     border-radius: 5px;
 }
 
-div .button:active {
+div .button:active, button:active, input[type=submit]:active {
     background: #006100;
 }
 
-div .button[disabled] {
+div .button[disabled], button[disabled], input[type=submit][disabled] {
     background: #003100;
 }
 
-div .button[disabled]:active {
+div .button[disabled]:active, button[disabled]:active, input[type=submit][disabled]:active {
     background: #003100;
 }
 
-div .text-input {
+div .text-input, input [type=text] {
     border-style: groove;
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     background: #009100;
