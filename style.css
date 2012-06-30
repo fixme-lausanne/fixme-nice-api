@@ -28,7 +28,7 @@ legend {
     font-size:20;
     background-color:black;
     border-width: 3px;
-    border-color: green;
+    border-color: white;
     border-style: groove;
     width:60%;
     height:160px;
@@ -64,7 +64,7 @@ div .button[disabled]:active, button[disabled]:active, input[type=submit][disabl
     background: #003100;
 }
 
-div .text-input, input [type=text] {
+div .text-input, input[type=text] {
     border-style: groove;
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     background: #009100;
