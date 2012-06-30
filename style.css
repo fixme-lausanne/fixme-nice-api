@@ -13,6 +13,7 @@ html {
 }
 
 legend {
+    padding: 1px 10px;
     background: black;
     margin: 4px;
     border-radius: 4px;
