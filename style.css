@@ -64,7 +64,7 @@ div .button[disabled]:active, button[disabled]:active, input[type=submit][disabl
     background: #003100;
 }
 
-div .text-input, input[type=text] {
+div .text-input {
     border-style: groove;
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     background: #009100;
