@@ -30,7 +30,7 @@ html {
     position:absolute;
 }
 
-div .button {
+div .button, button, input[type=submit] {
     border-style: groove;
     background: #009100;
     font-size:20px;
