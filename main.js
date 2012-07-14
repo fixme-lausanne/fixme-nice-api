@@ -5,6 +5,9 @@ function onPageLoad() {
 
 var apiUrl = "https://fixme.ch/cgi-bin/spaceapi.py";
 function updateSpaceInformation() {
+    var loadBlock = document.getElementById("loading-block");
+    loadBlock.style.visibility = "visible";
+
     var xhr = new XMLHttpRequest();
 
     xhr.open("GET", apiUrl, true);
@@ -41,6 +44,7 @@ function updateSpaceInformation() {
             } else {
                 update_date(new Date(0));
             }
+            loadBlock.style.visibility = "hidden";
         } else {
             displayError();
         }
