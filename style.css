@@ -4,7 +4,9 @@ simple way to have an unified background that cover all the screen.
 html {
     background-image: url('http://fixme.ch/w/images/d/df/Pxe_fixme_splash.png');
 	background-size: cover;
+}
 
+* {
    /* Prevent selection*/
    -moz-user-select: -moz-none;
    -khtml-user-select: none;
