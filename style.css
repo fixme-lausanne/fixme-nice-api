@@ -15,6 +15,10 @@ html {
    user-select: none;
 }
 
+a {
+    color: lightgreen;
+}
+
 /*
 Legend act here as a menu, give the same green border than central-block.
 */
@@ -63,6 +67,7 @@ h1 {
 .index label {
     width: 350px;
     display: inline-block;
+    padding: 3px 0;
 }
 
 /*
