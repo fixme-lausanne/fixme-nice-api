@@ -56,6 +56,15 @@ h1 {
     position:absolute;
 }
 
+.index {
+    text-align: left;
+}
+
+.index label {
+    width: 350px;
+    display: inline-block;
+}
+
 /*
 API message block
 */
