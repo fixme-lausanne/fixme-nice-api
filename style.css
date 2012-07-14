@@ -2,8 +2,9 @@
 simple way to have an unified background that cover all the screen.
 */
 html {
-    background-image: url('http://fixme.ch/w/images/d/df/Pxe_fixme_splash.png');
-	background-size: cover;
+    background: black url('http://fixme.ch/w/images/d/df/Pxe_fixme_splash.png') no-repeat;
+    background-size: cover;
+    margin: 32px;
 }
 
 * {
@@ -65,7 +66,7 @@ h1 {
 }
 
 .index label {
-    width: 350px;
+    width: 250px;
     display: inline-block;
     padding: 3px 0;
 }
