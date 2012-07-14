@@ -1,6 +1,6 @@
 function onPageLoad() {
     updateSpaceInformation();
-    refresh_counter = setTimeout("onPageLoad()", 5 * 60 *1000);
+    refresh_counter = setTimeout("onPageLoad()", 60 *1000);
 }
 
 var apiUrl = "https://fixme.ch/cgi-bin/spaceapi.py";
