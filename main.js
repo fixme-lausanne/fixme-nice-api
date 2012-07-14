@@ -1,6 +1,17 @@
 function onPageLoad() {
     updateSpaceInformation();
     refresh_counter = setTimeout("onPageLoad()", 60 *1000);
+    checkHours(document.getElementById("hours"));
+}
+
+function changeHour(inc) {
+    var val = document.getElementById("hours");
+    if (inc) {
+        val.value = (val.value-0) + 1;
+    } else {
+        val.value = (val.value-0) - 1;
+    }
+    checkHours(val);
 }
 
 var apiUrl = "https://fixme.ch/cgi-bin/spaceapi.py";

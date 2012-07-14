@@ -21,8 +21,10 @@
   "visibility:hidden;">
     <form name="hoursform" id="hoursform">
       <label for="hours">Hours : </label>
+      <div class="plusminux" onclick="changeHour(0)">-</div>
       <input id="hours" name="hours" size="2" class="text-input" maxlength=
-      "2" onkeyup="checkHours(this)">
+      "2" onkeyup="checkHours(this)" value="1">
+      <div class="plusminux" onclick="changeHour(1)">+</div>
       <input type="button" onclick="openSpace()" value="Open"
       class="button" id="openbutton" disabled>
     </form>

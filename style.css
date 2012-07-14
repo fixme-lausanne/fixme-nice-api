@@ -4,6 +4,13 @@ simple way to have an unified background that cover all the screen.
 html {
     background-image: url('http://fixme.ch/w/images/d/df/Pxe_fixme_splash.png');
 	background-size: cover;
+
+   /* Prevent selection*/
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
 }
 
 /*
@@ -45,6 +52,16 @@ API message block
 .msg-block {
     padding: 15px;
     border-top: 1px solid green;
+}
+
+/*
+buttons
+*/
+.plusminux {
+    padding: 2px 3px;
+    display: inline;
+    color: lightgreen;
+    font-size: 32px;
 }
 
 /*
