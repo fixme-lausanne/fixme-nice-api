@@ -29,6 +29,14 @@ legend {
 /*
 Main app block, central.
 */
+h1 {
+    color: white;
+    font-family: Monospace, sans-serif;
+    font-size: 1.5em;
+    margin-left: 2%;
+    margin-top: 5%;
+}
+
 .central-block {
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     color:green;
