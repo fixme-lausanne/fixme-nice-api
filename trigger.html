@@ -19,20 +19,19 @@
 
   <div class='central-block' id="open-block" style=
   "visibility:hidden;">
-    The space is now closed.
-
     <form name="hoursform" id="hoursform">
-      <input name="hours" size="48" class="text-input" maxlength=
-      "2" onkeyup="checkHours(this)"><br>
+      <label for="hours">Hours : </label>
+      <input id="hours" name="hours" size="2" class="text-input" maxlength=
+      "2" onkeyup="checkHours(this)">
       <input type="button" onclick="openSpace()" value="Open"
       class="button" id="openbutton" disabled>
     </form>
+  
+    <div class="msg-block">The space is now closed.</div>
   </div>
 
   <div class='central-block' id="close-block" style=
   "visibility:hidden;">
-    The space is now open.
-
     <form>
       <input type="button" onclick="closeSpace()" value="Close"
       class="button">
@@ -45,6 +44,8 @@
       "first-minute">2</span> <span class="number" id=
       "second-minute">2</span>
     </div>
+    
+    <div class="msg-block">The space is now open.</div>
   </div>
   <script type="text/javascript" src="main.js"></script>
   <script type="text/javascript" src="json_sans_eval.js"></script>
