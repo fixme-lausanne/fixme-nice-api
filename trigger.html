@@ -1,11 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
 <html>
 <head>
   <meta name="generator" content=
   "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
   <link rel="stylesheet" href="style.css" type="text/css">
-
   <title>Hackerspace trigger</title>
 </head>
 
@@ -13,43 +11,43 @@
 
   <h1>Trigger hackerspace status</h1>
 
-  <div class='central-block' id="loading-block" style=
-  "visibility:hidden;">
-    Loading ...
+  <div class='central-block'>
+
+      <div id="loading-block" style="visibility:hidden;">
+        Loading ...
+      </div>
+      
+      <div id="open-block" style="visibility:hidden;">
+        <form name="hoursform" id="hoursform">
+          <label for="hours">Hours : </label>
+          <div class="plusminux" onclick="changeHour(0)">-</div>
+          <input id="hours" name="hours" size="2" class="text-input" maxlength=
+          "2" onkeyup="checkHours(this)" value="1">
+          <div class="plusminux" onclick="changeHour(1)">+</div>
+          <input type="button" onclick="openSpace()" value="Open"
+          class="button" id="openbutton" disabled>
+        </form>
+      
+      </div>
+
+      <div id="close-block" style="visibility:hidden;">
+        <form>
+          <input type="button" onclick="closeSpace()" value="Close"
+          class="button">
+        </form>The space is still open for :
+
+        <div class="numbers">
+          <span class="number" id="first-hour">2</span> <span class=
+          "number" id="second-hour">2</span> <span class="number" id=
+          "separator">:</span> <span class="number" id=
+          "first-minute">2</span> <span class="number" id=
+          "second-minute">2</span>
+        </div>
+      </div>
+
+      <div id="msg-block"></div>
   </div>
 
-  <div class='central-block' id="open-block" style=
-  "visibility:hidden;">
-    <form name="hoursform" id="hoursform">
-      <label for="hours">Hours : </label>
-      <div class="plusminux" onclick="changeHour(0)">-</div>
-      <input id="hours" name="hours" size="2" class="text-input" maxlength=
-      "2" onkeyup="checkHours(this)" value="1">
-      <div class="plusminux" onclick="changeHour(1)">+</div>
-      <input type="button" onclick="openSpace()" value="Open"
-      class="button" id="openbutton" disabled>
-    </form>
-  
-    <div class="msg-block">The space is now closed.</div>
-  </div>
-
-  <div class='central-block' id="close-block" style=
-  "visibility:hidden;">
-    <form>
-      <input type="button" onclick="closeSpace()" value="Close"
-      class="button">
-    </form>The space is still open for :
-
-    <div class="numbers">
-      <span class="number" id="first-hour">2</span> <span class=
-      "number" id="second-hour">2</span> <span class="number" id=
-      "separator">:</span> <span class="number" id=
-      "first-minute">2</span> <span class="number" id=
-      "second-minute">2</span>
-    </div>
-    
-    <div class="msg-block">The space is now open.</div>
-  </div>
   <script type="text/javascript" src="main.js"></script>
   <script type="text/javascript" src="json_sans_eval.js"></script>
   <script type="text/javascript" src="http://konami-js.googlecode.com/svn/trunk/konami.js"></script>

@@ -16,8 +16,9 @@ function changeHour(inc) {
 
 var apiUrl = "https://fixme.ch/cgi-bin/spaceapi.py";
 function updateSpaceInformation() {
+    var msgBlock = document.getElementById("msg-block");
     var loadBlock = document.getElementById("loading-block");
-    loadBlock.style.visibility = "visible";
+    toggleDiv(loadBlock, 1);
 
     var xhr = new XMLHttpRequest();
 
@@ -42,11 +43,11 @@ function updateSpaceInformation() {
             var closeBlock = document.getElementById("close-block");
             var openBlock = document.getElementById("open-block");
             if (isOpen) {
-                openBlock.style.visibility = "hidden";
-                closeBlock.style.visibility = "visible";
+                toggleDiv(openBlock, 0);
+                toggleDiv(closeBlock, 1);
             } else {
-                openBlock.style.visibility = "visible";
-                closeBlock.style.visibility = "hidden";
+                toggleDiv(openBlock, 1);
+                toggleDiv(closeBlock, 0);
                 document.hoursform.hours.focus();
             }
             var diff_time = Number(closing_time.getTime()) - new Date().getTime();
@@ -55,13 +56,24 @@ function updateSpaceInformation() {
             } else {
                 update_date(new Date(0));
             }
-            loadBlock.style.visibility = "hidden";
+            toggleDiv(loadBlock, 0);
+            msgBlock.innerHTML = parsed_text.status;
         } else {
             displayError();
         }
       }
     };
     xhr.send(null);
+}
+
+function toggleDiv(div, show){
+    if (show) {
+        div.style.visibility = "visible";
+        div.style.height = "auto";;
+    } else {
+        div.style.visibility = "hidden";
+        div.style.height = "0px";;
+    }
 }
 
 function displayError() {
