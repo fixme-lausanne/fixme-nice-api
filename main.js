@@ -87,7 +87,7 @@ function displayError() {
     document.body.innerHTML = "Error connecting to fixme server";
 }
 
-var baseUrl = "https://fixme.ch/cgi-bin/twitter.pl";
+var baseUrl = "http://fixme.ch/cgi-bin/twitter.pl";
 function checkHours(hoursForm) {
     var hoursOpen = hoursForm.value;
     var hoursOpen = Math.floor(hoursOpen);
