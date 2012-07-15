@@ -83,8 +83,8 @@ function toggleDiv(div, show){
 }
 
 function displayError() {
-    document.body.style.background = "red";
-    document.body.innerHTML = "Error connecting to fixme server";
+    msgBlock.style.background = "red";
+    msgBlock.innerHTML = "Error connecting to fixme server";
 }
 
 var baseUrl = "https://fixme.ch/cgi-bin/twitter.pl";
