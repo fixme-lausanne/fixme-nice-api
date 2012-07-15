@@ -69,10 +69,10 @@ function updateSpaceInformation() {
 function toggleDiv(div, show){
     if (show) {
         div.style.visibility = "visible";
-        div.style.height = "auto";;
+        div.style.height = "auto";
     } else {
         div.style.visibility = "hidden";
-        div.style.height = "0px";;
+        div.style.height = "0px";
     }
 }
 
