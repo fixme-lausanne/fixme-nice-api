@@ -47,18 +47,16 @@ h1 {
 .central-block {
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     color:green;
-    font-size:20;
+    font-size:20px;
     background-color:black;
     border-width: 3px;
     border-color: green;
     border-style: groove;
     width:60%;
-    margin-top: 15%;
-    margin-left:16%;
+    margin: 5% auto;
     text-align:center;
     vertical-align:middle;
     padding:1%;
-    position:absolute;
 }
 
 .index {
@@ -74,10 +72,9 @@ h1 {
 /*
 API message block
 */
-.msg-block {
+#msg-block {
     padding: 15px;
     border-top: 1px solid green;
-    clear: both;
 }
 
 /*

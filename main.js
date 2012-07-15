@@ -1,4 +1,12 @@
+var msgBlock   =  document.getElementById("msg-block");
+var loadBlock  =  document.getElementById("loading-block");
+var closeBlock =  document.getElementById("close-block");
+var openBlock  =  document.getElementById("open-block");
+
 function onPageLoad() {
+    toggleDiv(openBlock, 0);
+    toggleDiv(closeBlock, 0);
+    toggleDiv(msgBlock, 0);
     updateSpaceInformation();
     refresh_counter = setTimeout("onPageLoad()", 60 *1000);
     checkHours(document.getElementById("hours"));
@@ -16,8 +24,7 @@ function changeHour(inc) {
 
 var apiUrl = "https://fixme.ch/cgi-bin/spaceapi.py";
 function updateSpaceInformation() {
-    var msgBlock = document.getElementById("msg-block");
-    var loadBlock = document.getElementById("loading-block");
+    toggleDiv(msgBlock, 0);
     toggleDiv(loadBlock, 1);
 
     var xhr = new XMLHttpRequest();
@@ -40,8 +47,6 @@ function updateSpaceInformation() {
                 displayError();
                 return;
             }
-            var closeBlock = document.getElementById("close-block");
-            var openBlock = document.getElementById("open-block");
             if (isOpen) {
                 toggleDiv(openBlock, 0);
                 toggleDiv(closeBlock, 1);
@@ -56,8 +61,9 @@ function updateSpaceInformation() {
             } else {
                 update_date(new Date(0));
             }
-            toggleDiv(loadBlock, 0);
             msgBlock.innerHTML = parsed_text.status;
+            toggleDiv(msgBlock, 1);
+            toggleDiv(loadBlock, 0);
         } else {
             displayError();
         }
