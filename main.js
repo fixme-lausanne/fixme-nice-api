@@ -109,6 +109,13 @@ function openSpace() {
         var requestUrl = baseUrl + "?do=custom&hours=" + hoursOpen;
         var requestObject = new XMLHttpRequest();
         requestObject.open("GET", requestUrl, true);
+        requestObject.onreadystatechange = function() {
+            if ( requestObject.readyState == 4) {
+                if (requestObject.status == 200) {
+                    msgBlock.innerHTML = requestObject.responseText;
+                }
+            }
+        }
         requestObject.send(null);
     }
 }
@@ -123,10 +130,8 @@ function closeSpace() {
     requestObject.open("GET", requestUrl, true);
     requestObject.onreadystatechange = function() {
         if (requestObject.readyState == 4) {
-            if (request.status == 200) {
-                alert("Request was sent correctly.");
-            } else {
-                alert("Request had an issue, wait a moment then retry please.");
+            if (requestObject.status == 200) {
+                msgBlock.innerHTML = requestObject.responseText;
             }
         }
     }
