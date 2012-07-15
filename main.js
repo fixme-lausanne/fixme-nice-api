@@ -16,7 +16,7 @@ function changeHour(inc) {
     var val = document.getElementById("hours");
     if (inc) {
         val.value = (val.value-0) + 1;
-    } else {
+    } else if((val.value-0)>1) {
         val.value = (val.value-0) - 1;
     }
     checkHours(val);
