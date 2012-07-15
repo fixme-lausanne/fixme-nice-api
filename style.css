@@ -83,7 +83,7 @@ API message block
 buttons
 */
 .plusminux {
-    padding: 2px 3px;
+    padding: 2px 8px;
     display: inline;
     color: lightgreen;
     font-size: 32px;
