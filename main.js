@@ -101,9 +101,11 @@ function checkHours(hoursForm) {
     }
 }
 
-function openSpace() {
-    var hoursForm = document.hoursform.hours;
-    var hoursOpen = hoursForm.value;
+function openSpace(hoursOpen) {
+    if(hoursOpen==undefined){
+        var hoursForm = document.hoursform.hours;
+        hoursOpen = hoursForm.value;
+    }
     var confirm_return = confirm("Are you sure you want to open the hackerspace ?");
     if (confirm_return) {
         var requestUrl = baseUrl + "?do=custom&hours=" + hoursOpen;
@@ -118,6 +120,11 @@ function openSpace() {
         }
         requestObject.send(null);
     }
+}
+
+function openSpace2(){
+    var hours = prompt("Hours:", 1);
+    openSpace(hours);
 }
 
 function closeSpace() {
