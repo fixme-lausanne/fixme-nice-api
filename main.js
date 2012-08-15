@@ -40,6 +40,7 @@ function updateSpaceInformation() {
                 var isOpen = parsed_text.open;
                 var open_duration = parsed_text.duration;
                 var closing_time = new Date(Number(parsed_text.lastchange) * 1000);
+                alert(closing_time);
                 closing_time.setHours(closing_time.getHours() + open_duration);
             } catch (err) {
                 //json parsing failed or doesn't contain the correct element
