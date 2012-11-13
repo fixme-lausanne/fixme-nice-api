@@ -172,3 +172,20 @@ function setTextForId(id, text) {
         document.getElementById(id).textContent = text;
     }
 }
+
+
+function switchTheLight(red, green, blue)
+ {
+    var requestUrl = "http://led.fixme.ch/rgb/";
+    var requestObject = new XMLHttpRequest();
+    requestObject.open("POST", requestUrl, true);
+    requestObject.send("red=" + red + "&green=" + green + "&blue=" + blue);
+}
+
+function switchTheLightOn() {
+  switchTheLight(255, 255, 255)
+}
+
+function switchTheLightOff() {
+  switchTheLight(0, 0, 0)
+}
