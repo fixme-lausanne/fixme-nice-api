@@ -179,6 +179,7 @@ function switchTheLight(red, green, blue)
     var requestUrl = "http://led.fixme.ch/rgb/";
     var requestObject = new XMLHttpRequest();
     requestObject.open("POST", requestUrl, true);
+    requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     requestObject.send("red=" + red + "&green=" + green + "&blue=" + blue);
 }
 
