@@ -106,7 +106,7 @@ function onPageLoad() {
     toggleDiv(closeBlock, 0);
     toggleDiv(msgBlock, 0);
     updateSpaceInformation();
-    setTimeout(onPageLoad, 60 * 1000);
+    setInterval(onPageLoad, 60 * 1000);
     checkHours(document.getElementById("hours"));
 }
 
