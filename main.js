@@ -174,8 +174,7 @@ function setTextForId(id, text) {
 }
 
 
-function switchTheLight(red, green, blue)
- {
+function switchTheLight(red, green, blue) {
     var requestUrl = "http://led.fixme.ch/rgb/";
     var requestObject = new XMLHttpRequest();
     requestObject.open("POST", requestUrl, true);
@@ -189,4 +188,23 @@ function switchTheLightOn() {
 
 function switchTheLightOff() {
   switchTheLight(0, 0, 0)
+}
+
+var malik_in_the_place = 0;
+
+function switchTheLightToPolice() {
+  red = function() { switchTheLight(255, 0, 0) }
+  blue = function() { switchTheLight(0, 0, 255) }
+
+  blah = function() {
+    if (malik_in_the_place) {
+      red();
+      malik_in_the_place = 0;
+    } else {
+      blue();
+      malik_in_the_place = 1;
+    }
+  }
+
+  window.setInterval(blah, 100);
 }
