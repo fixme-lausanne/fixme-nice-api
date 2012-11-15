@@ -43,9 +43,9 @@ function changeHour(inc) {
     "use strict";
     var val = document.getElementById("hours");
     if (inc) {
-        val.value = val.value + 1;
+        val.value = parseInt(val.value, 10) + 1;
     } else if (val.value > 1) {
-        val.value = val.value - 1;
+        val.value = parseInt(val.value, 10) - 1;
     }
     checkHours(val);
 }
