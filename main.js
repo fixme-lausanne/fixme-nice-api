@@ -199,6 +199,20 @@ function switchTheLight(red, green, blue) {
     requestObject.send("red=" + red + "&green=" + green + "&blue=" + blue);
 }
 
+function switchTheLightColor(color) {
+    switch(color) {
+        case 'red':
+            switchTheLight(255, 0, 0)
+            break;
+        case 'green':
+            switchTheLight(0, 255, 0)
+            break;
+        case 'blue':
+            switchTheLight(0, 0, 255)
+            break;
+    }
+}
+
 function switchTheLightOn() {
     "set strict";
   switchTheLight(255, 255, 255)

@@ -102,6 +102,18 @@ div .button, button, input[type=submit] {
     border-radius: 5px;
 }
 
+div .btn_red {
+    background: #ff0000;
+}
+
+div .btn_green {
+    background: #00ff00;
+}
+
+div .btn_blue {
+    background: #0000ff;
+}
+
 
 div .button:active, button:active, input[type=submit]:active {
     background: #006100;

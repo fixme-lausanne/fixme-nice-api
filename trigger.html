@@ -44,13 +44,24 @@
           "first-minute">2</span> <span class="number" id=
           "second-minute">2</span>
         </div>
-          <input type="button" onclick="switchTheLightOn()" value="Switch the light on" class="button">
-          <input type="button" onclick="switchTheLightOff()" value="Switch the light off" class="button">
-          <input type="button" onclick="switchTheLightToPolice()" value="Police!" class="button">
         </form>
       </div>
-
+      
       <div id="msg-block"></div>
+      </fieldset>
+      <br/>
+      <fieldset>
+        <legend>Lights</legend>
+        <input type="button" onclick="switchTheLightColor('red')" value="ON" class="button btn_red">
+        <input type="button" onclick="switchTheLightColor('green')" value="ON" class="button btn_green">
+        <input type="button" onclick="switchTheLightColor('blue')" value="ON" class="button btn_blue">
+        <br/>
+        <input type="button" onclick="switchTheLightOn()" value="ON" class="button">
+        <input type="button" onclick="switchTheLightOff()" value="OFF" class="button">
+        <input type="button" onclick="switchTheLightToPolice()" value="Police!" class="button">
+        <br/>
+      </fieldset>
+
   </div>
 
   <script type="text/javascript" src="main.js"></script>
