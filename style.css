@@ -4,7 +4,7 @@ simple way to have an unified background that cover all the screen.
 html {
     background: black url('http://fixme.ch/w/images/d/df/Pxe_fixme_splash.png') no-repeat;
     background-size: cover;
-    margin: 32px;
+    margin: 16px;
 }
 
 * {
@@ -73,7 +73,7 @@ h1 {
 API message block
 */
 #msg-block {
-    padding: 15px;
+    padding: 5px;
     border-top: 1px solid green;
 }
 
@@ -135,11 +135,11 @@ div .button[disabled]:active, button[disabled]:active, input[type=submit][disabl
     text-align:center;
     background-color:#009100;
     color:white;
-    font-size:40;
+    font-size:32;
     font-weight:bold;
-    padding:10px;
-    width:25px;
-    height:45px;
+    padding:8px;
+    width:20px;
+    height:35px;
     border-radius:10px;
     margin: 4px;
 }
@@ -148,7 +148,7 @@ div .button[disabled]:active, button[disabled]:active, input[type=submit][disabl
     background: black;
 }
 .numbers {
-    margin: 0px auto 30px auto;
-    width:270px;
-    height: 70px;
+    margin: 0px auto;
+    width:220px;
+    height: 50px;
 }
