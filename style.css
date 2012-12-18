@@ -33,6 +33,10 @@ legend {
     border-style: groove;
 }
 
+fieldset {
+    border-color: #24FF61;
+}
+
 /*
 Main app block, central.
 */
