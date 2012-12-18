@@ -11,9 +11,11 @@ function toggleDiv(div, show) {
     "use strict";
     if (show) {
         div.style.visibility = "visible";
+        div.style.overflow = "none";
         div.style.height = "auto";
     } else {
         div.style.visibility = "hidden";
+        div.style.overflow = "hidden";
         div.style.height = "0px";
     }
 }
