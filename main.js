@@ -34,6 +34,9 @@ function checkHours(hoursForm) {
         openButton = formParent.openbutton;
     hoursOpen = Math.floor(hoursOpen);
     //TODO throw error if parentElement is null
+    if (openButton == null) {
+        alert("The page was malformed, you should reload it now.")
+    }
     if (isNaN(hoursOpen) || hoursOpen < 1) {
         openButton.disabled = true;
     } else {
