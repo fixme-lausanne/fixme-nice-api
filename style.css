@@ -2,7 +2,7 @@
 simple way to have an unified background that cover all the screen.
 */
 html {
-    background: black url('http://fixme.ch/w/images/d/df/Pxe_fixme_splash.png') no-repeat;
+    background: black url('https://fixme.ch/w/images/d/df/Pxe_fixme_splash.png') no-repeat;
     background-size: cover;
     margin: 16px;
 }
