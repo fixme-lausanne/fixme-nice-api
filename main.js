@@ -197,7 +197,7 @@ function setTextForId(id, text) {
 
 function switchTheLight(red, green, blue) {
     "set strict";
-    var requestUrl = "https://led.fixme.ch/rgb/";
+    var requestUrl = "http://led.fixme.ch/rgb/";
     var requestObject = new XMLHttpRequest();
     requestObject.open("POST", requestUrl, true);
     requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
