@@ -6,6 +6,7 @@ var msgBlock   =  document.getElementById("msg-block");
 var loadBlock  =  document.getElementById("loading-block");
 var closeBlock =  document.getElementById("close-block");
 var openBlock  =  document.getElementById("open-block");
+var slider	   =  document.getElementById("breathSlider")
 
 function toggleDiv(div, show) {
     "use strict";
@@ -138,7 +139,7 @@ function openSpace(hoursOpen) {
     }
 }
 
-function openSpace2(){
+function promptOpenSpace(){
     "use strict";
     var hours = prompt("Hours:", 1);
     openSpace(hours);
@@ -194,14 +195,26 @@ function setTextForId(id, text) {
     }
 }
 
-
 function switchTheLight(red, green, blue) {
     "set strict";
+	var breathValue = slider.value;
     var requestUrl = "http://led.fixme.ch/rgb/";
     var requestObject = new XMLHttpRequest();
     requestObject.open("POST", requestUrl, true);
     requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    requestObject.send("red=" + red + "&green=" + green + "&blue=" + blue);
+    requestObject.send("red=" + red + "&green=" + green + "&blue=" + blue + "&breath=" + breathValue);
+}
+
+function setTheBreathSpeed() {
+    "set strict";
+	console.log("changing the breath speed");
+	var breathValue = slider.value;
+    var requestUrl = "http://led.fixme.ch/rgb/";
+    var requestObject = new XMLHttpRequest();
+    requestObject.open("POST", requestUrl, true);
+    requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    requestObject.send("breath=" + breathValue);
+	
 }
 
 function switchTheLightColor(color) {
@@ -234,12 +247,12 @@ function switchTheLightToPolice() {
 	Police.switchOn()
 }
 
-var Police;
+function Police(){};
 Police.policeEvent = 0;
 Police.delay = 100;
 
 Police.switchOff = function switchOff() {
-	window.clearInterval(policeEvent)
+	window.clearInterval(Police.policeEvent)
 }
 
 Police.switchOn = function switchOn(red) {
@@ -248,6 +261,6 @@ Police.switchOn = function switchOn(red) {
 	} else {
 		switchTheLight(0, 0, 255);
 	}
-	policeEvent = window.setTimeout(function() { Police.switchOn(!red)}, delay)
+	Police.policeEvent = window.setTimeout(function() { Police.switchOn(!red)}, Police.delay)
 }
 
