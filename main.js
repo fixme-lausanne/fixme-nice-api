@@ -205,6 +205,7 @@ function switchTheLight(red, green, blue) {
 }
 
 function switchTheLightColor(color) {
+	Police.switchOff()
     switch(color) {
         case 'red':
             switchTheLight(255, 0, 0)
@@ -225,22 +226,28 @@ function switchTheLightOn() {
 
 function switchTheLightOff() {
   "set strict";
-  clearPolice()
+  Police.switchOff()
   switchTheLight(0, 0, 0)
 }
 
-//A dummy function only set when the police is off
-function clearPolice() {
+function switchTheLightToPolice() {
+	Police.switchOn()
 }
 
-function switchTheLightToPolice() {
-  red = function() { switchTheLight(255, 0, 0) }
-  blue = function() { switchTheLight(0, 0, 255) }
+var Police {
+	var policeEvent;
+	var delay = 100;
 
-  var redEvent = window.setInterval(red, 100);
-  var blueEvent = window.setTimeout(function() { window.setInterval(blue, 100)}, 50)
-  clearPolice = function() {
-	  clearInterval(redEvent);
-	  clearInterval(blueEvent);
+	function switchOff() {
+		window.clearInterval(policeEvent)
+	}
+
+	function switchOn(red) {
+		if (red) {
+			switchTheLight(255, 0, 0);
+		} else {
+			switchTheLight(0, 0, 255);
+		}
+	 policeEvent = window.setTimeout(function() { switchTheLightToPolice(!red)}, delay)
 	}
 }
