@@ -235,7 +235,7 @@ function switchTheLightToPolice() {
 }
 
 var Police;
-Police.policeEvent;
+Police.policeEvent = 0;
 Police.delay = 100;
 
 Police.switchOff = function switchOff() {
