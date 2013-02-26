@@ -224,15 +224,23 @@ function switchTheLightOn() {
 }
 
 function switchTheLightOff() {
-    "set strict";
+  "set strict";
+  clearPolice()
   switchTheLight(0, 0, 0)
 }
 
+//A dummy function only set when the police is off
+function clearPolice() {
+}
 
 function switchTheLightToPolice() {
   red = function() { switchTheLight(255, 0, 0) }
   blue = function() { switchTheLight(0, 0, 255) }
 
-  window.setInterval(red, 100);
-  window.setTimeout(function() { window.setInterval(blue, 100)}, 50)
+  var redEvent = window.setInterval(red, 100);
+  var blueEvent = window.setTimeout(function() { window.setInterval(blue, 100)}, 50)
+  clearPolice = function() {
+	  clearInterval(redEvent);
+	  clearInterval(blueEvent);
+	}
 }
