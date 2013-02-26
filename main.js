@@ -234,20 +234,20 @@ function switchTheLightToPolice() {
 	Police.switchOn()
 }
 
-var Police {
-	var policeEvent;
-	var delay = 100;
+var Police;
+Police.policeEvent;
+Police.delay = 100;
 
-	function switchOff() {
-		window.clearInterval(policeEvent)
-	}
-
-	function switchOn(red) {
-		if (red) {
-			switchTheLight(255, 0, 0);
-		} else {
-			switchTheLight(0, 0, 255);
-		}
-	 policeEvent = window.setTimeout(function() { switchTheLightToPolice(!red)}, delay)
-	}
+Police.switchOff = function switchOff() {
+	window.clearInterval(policeEvent)
 }
+
+Police.switchOn = function switchOn(red) {
+	if (red) {
+		switchTheLight(255, 0, 0);
+	} else {
+		switchTheLight(0, 0, 255);
+	}
+	policeEvent = window.setTimeout(function() { Police.switchOn(!red)}, delay)
+}
+
