@@ -32,7 +32,7 @@
         <form>
           <input type="button" onclick="closeSpace()" value="Close"
           class="button">
-          <input type="button" onclick="openSpace2()" value="Extend"
+          <input type="button" onclick="promptOpenSpace()" value="Extend"
           class="button">
           <br>
         The space is still open for :
@@ -50,7 +50,9 @@
       </fieldset>
       <br/>
       <fieldset>
-        <legend>Lights</legend>
+		  <legend>Lights</legend>
+		  <input type="range" min=0 max=255 onupdate="setTheBreathSpeed()" id="breathSlider" class="button">
+        <br/>
         <input type="button" onclick="switchTheLightColor('red')" value="ON" class="button btn_red">
         <input type="button" onclick="switchTheLightColor('green')" value="ON" class="button btn_green">
         <input type="button" onclick="switchTheLightColor('blue')" value="ON" class="button btn_blue">
