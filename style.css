@@ -86,9 +86,12 @@ buttons
 */
 .plusminux {
     padding: 2px 8px;
-    display: inline;
+    display: inline-block;
+    width: 32px;
     color: lightgreen;
-    font-size: 32px;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 12px;
 }
 
 /*
