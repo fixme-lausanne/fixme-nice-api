@@ -207,14 +207,18 @@ function switchTheLight(red, green, blue) {
     requestObject.send("red=" + red + "&green=" + green + "&blue=" + blue + "&breath=" + breathValue);
 }
 
+var lastBreathValue = 0;
 function setTheBreathSpeed() {
     "set strict";
-	var breathValue = slider.value;
-    var requestUrl = "http://led.fixme.ch/rgb/";
-    var requestObject = new XMLHttpRequest();
-    requestObject.open("POST", requestUrl, true);
-    requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    requestObject.send("breath=" + breathValue);
+    var breathValue = slider.value;
+    if (Math.abs(breathValue - lastBreathValue) > 100) {
+        var requestUrl = "http://led.fixme.ch/rgb/";
+        var requestObject = new XMLHttpRequest();
+        requestObject.open("POST", requestUrl, true);
+        requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        requestObject.send("breath=" + breathValue);
+        lastBreathValue = breathValue;
+    }
     document.getElementById("breathValue").innerText = breathValue;
 }
 
