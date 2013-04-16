@@ -125,6 +125,7 @@ function openSpace(hoursOpen) {
     }
     var confirm_return = confirm("Are you sure you want to open the hackerspace ?");
     if (confirm_return) {
+        msgBlock.innerHTML = "Opening space...";
         var requestUrl = baseUrl + "?do=custom&hours=" + hoursOpen,
             requestObject = new XMLHttpRequest();
         requestObject.open("GET", requestUrl, true);
@@ -153,6 +154,7 @@ function closeSpace() {
     if (!confirm_value) {
         return;
     }
+    msgBlock.innerHTML = "Closing space...";
     requestObject.open("GET", requestUrl, true);
     requestObject.onreadystatechange = function() {
         if (requestObject.readyState == 4) {
@@ -207,14 +209,13 @@ function switchTheLight(red, green, blue) {
 
 function setTheBreathSpeed() {
     "set strict";
-	console.log("changing the breath speed");
 	var breathValue = slider.value;
     var requestUrl = "http://led.fixme.ch/rgb/";
     var requestObject = new XMLHttpRequest();
     requestObject.open("POST", requestUrl, true);
     requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     requestObject.send("breath=" + breathValue);
-	
+    document.getElementById("breathValue").innerText = breathValue;
 }
 
 function switchTheLightColor(color) {

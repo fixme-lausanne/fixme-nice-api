@@ -50,9 +50,7 @@
       </fieldset>
       <br/>
       <fieldset>
-		  <legend>Lights</legend>
-		  <input type="range" min=0 max=255 onupdate="setTheBreathSpeed()" id="breathSlider" class="button">
-        <br/>
+        <legend>Lights</legend>
         <input type="button" onclick="switchTheLightColor('red')" value="ON" class="button btn_red">
         <input type="button" onclick="switchTheLightColor('green')" value="ON" class="button btn_green">
         <input type="button" onclick="switchTheLightColor('blue')" value="ON" class="button btn_blue">
@@ -61,6 +59,11 @@
         <input type="button" onclick="switchTheLightOff()" value="OFF" class="button">
         <input type="button" onclick="switchTheLightToPolice()" value="Police!" class="button">
         <br/>
+        <div id="breathBox">
+            <label for="breathSlider">Breath:</label>
+            <input type="range" value=0 min=0 max=255 step=5 onchange="setTheBreathSpeed()" id="breathSlider" class="breathSlider">
+            <span id="breathValue">0</span>
+        </div>
       </fieldset>
 
   </div>
