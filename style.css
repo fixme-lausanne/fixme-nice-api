@@ -174,9 +174,14 @@ div .button[disabled]:active, button[disabled]:active, input[type=submit][disabl
 
 .breathSlider{
     padding: 0;
+    vertical-align: middle;
 }
 
 #breathBox span {
     width: 48px;
     display: inline-block;
+}
+
+#breathBox {
+    margin: 5px 0;
 }
