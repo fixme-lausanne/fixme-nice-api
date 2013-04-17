@@ -216,7 +216,7 @@ function setTheBreathSpeed() {
         var requestObject = new XMLHttpRequest();
         requestObject.open("POST", requestUrl, true);
         requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        requestObject.send("breath=" + breathValue);
+        requestObject.send("breathe=" + breathValue);
     //    lastBreathValue = breathValue;
     //}
     document.getElementById("breathValue").innerText = breathValue;
