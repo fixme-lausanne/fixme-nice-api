@@ -204,22 +204,21 @@ function switchTheLight(red, green, blue) {
     var requestObject = new XMLHttpRequest();
     requestObject.open("POST", requestUrl, true);
     requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    requestObject.send("red=" + red + "&green=" + green + "&blue=" + blue + "&breath=" + breathValue);
+    requestObject.send("red=" + red + "&green=" + green + "&blue=" + blue + "&breathe=" + breathValue);
 }
 
-//var lastBreathValue = 0;
+function changeBreathSpeed(){
+    document.getElementById("breathValue").innerText = slider.value;
+}
+
 function setTheBreathSpeed() {
     "set strict";
     var breathValue = slider.value;
-    //if (Math.abs(breathValue - lastBreathValue) > 100) {
-        var requestUrl = "http://led.fixme.ch/rgb/";
-        var requestObject = new XMLHttpRequest();
-        requestObject.open("POST", requestUrl, true);
-        requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        requestObject.send("breathe=" + breathValue);
-    //    lastBreathValue = breathValue;
-    //}
-    document.getElementById("breathValue").innerText = breathValue;
+    var requestUrl = "http://led.fixme.ch/rgb/";
+    var requestObject = new XMLHttpRequest();
+    requestObject.open("POST", requestUrl, true);
+    requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    requestObject.send("breathe=" + breathValue);
 }
 
 function switchTheLightColor(color) {

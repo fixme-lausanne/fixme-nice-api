@@ -61,7 +61,7 @@
         <br/>
         <div id="breathBox">
             <label for="breathSlider">Breath:</label>
-            <input type="range" value=0 min=0 max=5000 step=100 onchange="setTheBreathSpeed()" id="breathSlider" class="breathSlider">
+            <input type="range" value=0 min=0 max=5000 step=10 onchange="changeBreathSpeed()" onmouseup="setTheBreathSpeed()" id="breathSlider" class="breathSlider">
             <span id="breathValue">0</span>
         </div>
       </fieldset>
