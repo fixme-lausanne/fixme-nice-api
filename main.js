@@ -72,7 +72,7 @@ function updateSpaceInformation() {
                 try {
                     var parsed_text = jsonParse(xhr.responseText),
                         isOpen = parsed_text.state.open,
-                        open_duration = parsed_text.state.duration,
+                        open_duration = parsed_text.state.ext_duration,
                         closing_time = new Date(Number(parsed_text.state.lastchange) * 1000);
                     closing_time.setHours(closing_time.getHours() + open_duration);
                 } catch (err) {
@@ -95,7 +95,7 @@ function updateSpaceInformation() {
                 } else {
                     update_date(new Date(0));
                 }
-                msgBlock.innerHTML = parsed_text.status;
+                msgBlock.innerHTML = parsed_text.state.message;
                 toggleDiv(msgBlock, 1);
                 toggleDiv(loadBlock, 0);
             } else {
