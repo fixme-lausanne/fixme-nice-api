@@ -56,7 +56,7 @@ function changeHour(inc) {
     checkHours(val);
 }
 
-var apiUrl = "https://fixme.ch/cgi-bin/spaceapi.py";
+var apiUrl = "https://fixme.ch/status.json";
 function updateSpaceInformation() {
     "use strict";
     toggleDiv(msgBlock, 0);
@@ -71,9 +71,9 @@ function updateSpaceInformation() {
             if (xhr.status === 200) {
                 try {
                     var parsed_text = jsonParse(xhr.responseText),
-                        isOpen = parsed_text.open,
-                        open_duration = parsed_text.duration,
-                        closing_time = new Date(Number(parsed_text.lastchange) * 1000);
+                        isOpen = parsed_text.state.open,
+                        open_duration = parsed_text.state.duration,
+                        closing_time = new Date(Number(parsed_text.state.lastchange) * 1000);
                     closing_time.setHours(closing_time.getHours() + open_duration);
                 } catch (err) {
                     /*json parsing failed or doesn't contain the correct element
