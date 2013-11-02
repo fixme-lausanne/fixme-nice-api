@@ -1,9 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=Share+Tech|Share+Tech+Mono|Nixie+One);
+@import url(https://fonts.googleapis.com/css?family=Share+Tech|Share+Tech+Mono|Nixie+One);
 
 /*
 font-family: 'Share Tech', sans-serif; // Title
 font-family: 'Share Tech Mono', sans-serif; // Code
-font-family: 'Nixie One', cursive; // Text
+font-family: 'Nixie One', sans-serif; // Text
 */
 
 /*
@@ -11,7 +11,7 @@ simple way to have an unified background that cover all the screen.
 */
 
 * {
-   font-family: 'Nixie One', cursive;
+   font-family: 'Nixie One', sans-serif;
    color: #eeeeee;
    
    margin: 0;
