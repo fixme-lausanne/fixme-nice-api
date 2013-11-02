@@ -1,9 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Share+Tech|Share+Tech+Mono|Nixie+One);
+@import url(https://fonts.googleapis.com/css?family=Share+Tech|Share+Tech+Mono|Nixie+One|VT323);
 
 /*
 font-family: 'Share Tech', sans-serif; // Title
 font-family: 'Share Tech Mono', sans-serif; // Code
 font-family: 'Nixie One', sans-serif; // Text
+font-family: 'VT323', monospace; // Fun
 */
 
 /*
@@ -213,5 +214,23 @@ match all the button
 
 #breathBox {
     margin: 5px 0;
+}
+
+/* Make it a marquee */
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 20s linear infinite;
+    font-family: 'VT323', monospace;
+    color: black;
+    background-color: #888;
+    border: 3px solid black;
+    padding: 10px 5px;
+}
+
+@keyframes marquee {
+    0%   { text-indent: 100% }
+    100% { text-indent: -100% }
 }
 
