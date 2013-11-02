@@ -1,66 +1,84 @@
+@import url(http://fonts.googleapis.com/css?family=Share+Tech|Share+Tech+Mono|Nixie+One);
+
+/*
+font-family: 'Share Tech', sans-serif; // Title
+font-family: 'Share Tech Mono', sans-serif; // Code
+font-family: 'Nixie One', cursive; // Text
+*/
+
 /*
 simple way to have an unified background that cover all the screen.
 */
-html {
-    background: black url('https://fixme.ch/w/images/d/df/Pxe_fixme_splash.png') no-repeat;
-    background-size: cover;
-    margin: 16px;
-}
 
 * {
-   /* Prevent selection*/
-   -moz-user-select: -moz-none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-   -ms-user-select: none;
-   user-select: none;
+   font-family: 'Nixie One', cursive;
+   color: #eeeeee;
+   
+   margin: 0;
+   padding: 0;
+   border: 0;
 }
 
-a {
-    color: lightgreen;
+html {
+    width: 100%;
+    height: 100%;
+    
+    background-color: #111111;
+    
+    background: black url('img/head_front.svg') no-repeat;
+    background-size: contain;
+    background-position: right;
+    background-attachment:fixed;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#container {
+    margin: auto;
+    width: 800px;
+    
+    height: 100%;
+    
+    background-color: rgba(50, 50, 50, 0.8);
+}
+
+#wrapper {
+    padding: 50px 50px;
 }
 
 /*
 Legend act here as a menu, give the same green border than central-block.
 */
 legend {
-    padding: 1px 10px;
-    background: black;
-    margin: 4px;
-    border-radius: 4px;
-    border-width: 3px;
-    border-color: green;
-    border-style: groove;
+	
 }
 
 fieldset {
-    border-color: #24FF61;
+	
 }
 
 /*
 Main app block, central.
 */
+
+h1, h2, h3, h4, h5, h6 {
+    color: #55DD00;
+    font-family: 'Share Tech', Monospace, sans-serif;
+}
+
 h1 {
-    color: lightgreen;
-    font-family: Monospace, sans-serif;
-    font-size: 1.5em;
-    margin-left: 2%;
-    margin-top: 5%;
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 36px;
 }
 
 .central-block {
-    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-    color:green;
-    font-size:18px;
-    background-color:black;
-    border-width: 3px;
-    border-color: green;
-    border-style: groove;
-    margin: 5% auto;
-    text-align:center;
-    vertical-align:middle;
-    padding:1%;
-    opacity:0.9;
+	
 }
 
 .index {
@@ -78,7 +96,6 @@ API message block
 */
 #msg-block {
     padding: 5px;
-    border-top: 1px solid green;
 }
 
 /*
