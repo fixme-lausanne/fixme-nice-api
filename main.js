@@ -36,7 +36,7 @@ function checkHours(hoursForm) {
     hoursOpen = Math.floor(hoursOpen);
     //TODO throw error if parentElement is null
     if (openButton == null) {
-        alert("The page was malformed, you should reload it now.")
+        alert("The page was malformed, you should reload it now.");
     }
     if (isNaN(hoursOpen) || hoursOpen < 1) {
         openButton.disabled = true;
@@ -89,12 +89,9 @@ function updateSpaceInformation() {
                     toggleDiv(closeBlock, 0);
                     document.hoursform.hours.focus();
                 }
-                var diff_time = Number(closing_time.getTime()) - new Date().getTime();
-                if (diff_time > 0) {
-                    update_date(new Date(diff_time));
-                } else {
-                    update_date(new Date(0));
-                }
+                
+                launchAutoRefresh(closing_time);
+                
                 msgBlock.innerHTML = parsed_text.state.message;
                 toggleDiv(msgBlock, 1);
                 toggleDiv(loadBlock, 0);
@@ -104,6 +101,24 @@ function updateSpaceInformation() {
       }
     };
     xhr.send(null);
+}
+
+function calcDiff(closing_time) {
+  var diff_time = Number(closing_time.getTime()) - new Date().getTime();
+  if (diff_time > 0) {
+      return new Date(diff_time);
+  } else {
+      return new Date(0);
+  }
+}
+
+var autoRefreshTime;
+function launchAutoRefresh(closing_time) {
+  if(autoRefreshTime)
+    clearInterval();
+  autoRefreshTime = setInterval(function () {
+    update_date(calcDiff(closing_time))
+  }, 100);
 }
 
 function onPageLoad() {
@@ -167,25 +182,24 @@ function closeSpace() {
 }
 
 function update_date(date) {
-
     "use strict";
-    var hours = String(date.getHours() - 1);
+    var hours = String(date.getHours() - 1); // Time Zone GMT-1
     if (hours.length == 1) {
         hours = "0" + hours;
     }
-    var first_char = hours.charAt(0);
-    setTextForId("first-hour", first_char);
-    var second_char = hours.charAt(1);
-    setTextForId("second-hour", second_char);
+    setTextForId("hour", hours);
 
     var minutes = String(date.getMinutes());
     if (minutes.length == 1) {
         minutes = "0" + minutes;
     }
-    var first_char = minutes.charAt(0);
-    setTextForId("first-minute", first_char);
-    var second_char = minutes.charAt(1);
-    setTextForId("second-minute", first_char);
+    setTextForId("minute", minutes);
+    
+    var seconds = String(date.getSeconds());
+    if (seconds.length == 1) {
+        seconds = "0" + seconds;
+    }
+    setTextForId("second", seconds);
 }
 
 function setTextForId(id, text) {

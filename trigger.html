@@ -16,7 +16,7 @@
 
       <div class='central-block'>
           <h2>Status</h2>
-          <div id="loading-block">Loading ...</div>
+          <div id="loading-block"><p>Loading ...</p></div>
 
           <div id="open-block" style="visibility:hidden;">
             <form name="hoursform" id="hoursform">
@@ -35,13 +35,13 @@
               <input type="button" onclick="promptOpenSpace()" value="Extend"
               class="button">
               <br>
-            The space is still open for :
+            <p>The space is still open for:</p>
             <div class="numbers">
-              <span class="number" id="first-hour">2</span> <span class=
-              "number" id="second-hour">2</span> <span class="number" id=
-              "separator">:</span> <span class="number" id=
-              "first-minute">2</span> <span class="number" id=
-              "second-minute">2</span>
+              <span class="number" id="hour">21</span>
+              <span class="separator"></span>
+              <span class="number" id="minute">45</span>
+              <span class="separator"></span>
+              <span class="number" id="second">38</span>
             </div>
             </form>
           </div>

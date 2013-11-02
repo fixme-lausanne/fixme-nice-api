@@ -36,11 +36,15 @@ body {
     height: 100%;
 }
 
+p {
+    margin: 10px 0;
+}
+
 #container {
     margin: auto;
     width: 800px;
     
-    height: 100%;
+    min-height: 100%;
     
     background-color: rgba(50, 50, 50, 0.8);
 }
@@ -71,10 +75,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: 48px;
+    margin-bottom: 20px;
 }
 
 h2 {
     font-size: 36px;
+    margin-bottom: 10px;
 }
 
 .central-block {
@@ -115,40 +121,47 @@ buttons
 match all the button
 */
 div .button, button, input[type=submit] {
-    border-style: groove;
-    background: #009100;
-    font-size:20px;
-    border-color: #006100;
-    border-width:3px;
-    padding:5px 15px;
-    margin:5px 2px;
-    color:black;
-    border-radius: 5px;
+    padding: 10px 10px;
+    width: 100px;
+    margin: 5px;
+    background-color: #333;
+    border: 2px solid #eee;
 }
 
 div .btn_red {
-    background: #ff0000;
+    border-color: #aa0000;
 }
 
 div .btn_green {
-    background: #00ff00;
+    border-color: #00aa00;
 }
 
 div .btn_blue {
-    background: #0000ff;
+    border-color: #0000aa;
 }
 
-
 div .button:active, button:active, input[type=submit]:active {
-    background: #006100;
+    border-color: #777777;
+}
+
+div .btn_red:active {
+    border-color: #770000;
+}
+
+div .btn_green:active {
+    border-color: #007700;
+}
+
+div .btn_blue:active {
+    border-color: #000077;
 }
 
 div .button[disabled], button[disabled], input[type=submit][disabled] {
-    background: #003100;
+    border-color: transparent;
 }
 
 div .button[disabled]:active, button[disabled]:active, input[type=submit][disabled]:active {
-    background: #003100;
+    border-color: transparent;
 }
 
 .text-input {
@@ -166,27 +179,17 @@ div .button[disabled]:active, button[disabled]:active, input[type=submit][disabl
 }
 
 .number {
-    float:left;
-    display:inline;
-    text-align:center;
-    background-color:#009100;
-    color:white;
-    font-size:32;
-    font-weight:bold;
-    padding:8px;
-    width:20px;
-    height:35px;
-    border-radius:10px;
-    margin: 4px;
 }
 
-#separator {
-    background: black;
+.separator:before {
+  content: ":";
 }
 .numbers {
-    margin: 0px auto;
-    width:220px;
-    height: 50px;
+    width: 200px;
+    text-align: center;
+    border: 2px solid #eeeeee;
+    padding: 10px 10px;
+    margin: 5px;
 }
 
 .breathSlider{
@@ -202,3 +205,4 @@ div .button[disabled]:active, button[disabled]:active, input[type=submit][disabl
 #breathBox {
     margin: 5px 0;
 }
+
