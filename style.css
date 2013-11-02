@@ -83,6 +83,11 @@ h2 {
     margin-bottom: 10px;
 }
 
+h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
 .central-block {
 	
 }
@@ -120,47 +125,51 @@ buttons
 /*
 match all the button
 */
-div .button, button, input[type=submit] {
+
+.button, button, input[type=submit] {
+    min-width: 100px;
+}
+
+.button, button, input[type=submit] {
     padding: 10px 10px;
-    width: 100px;
     margin: 5px;
     background-color: #333;
     border: 2px solid #eee;
 }
 
-div .btn_red {
+.btn_red {
     border-color: #aa0000;
 }
 
-div .btn_green {
+.btn_green {
     border-color: #00aa00;
 }
 
-div .btn_blue {
+.btn_blue {
     border-color: #0000aa;
 }
 
-div .button:active, button:active, input[type=submit]:active {
+.button:active, button:active, input[type=submit]:active {
     border-color: #777777;
 }
 
-div .btn_red:active {
+.btn_red:active {
     border-color: #770000;
 }
 
-div .btn_green:active {
+.btn_green:active {
     border-color: #007700;
 }
 
-div .btn_blue:active {
+.btn_blue:active {
     border-color: #000077;
 }
 
-div .button[disabled], button[disabled], input[type=submit][disabled] {
+.button[disabled], button[disabled], input[type=submit][disabled] {
     border-color: transparent;
 }
 
-div .button[disabled]:active, button[disabled]:active, input[type=submit][disabled]:active {
+.button[disabled]:active, button[disabled]:active, input[type=submit][disabled]:active {
     border-color: transparent;
 }
 
