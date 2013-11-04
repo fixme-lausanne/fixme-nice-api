@@ -114,13 +114,12 @@ API message block
 buttons
 */
 .plusminux {
-    padding: 2px 8px;
+    padding: 0 10px;
     display: inline-block;
     width: 32px;
-    color: lightgreen;
+    color: #00aa00;
     font-size: 48px;
-    font-weight: bold;
-    line-height: 12px;
+    cursor: pointer;
 }
 
 /*
@@ -129,6 +128,7 @@ match all the button
 
 .button, button, input[type=submit] {
     min-width: 100px;
+    cursor: pointer;
 }
 
 .button, button, input[type=submit] {
@@ -175,17 +175,12 @@ match all the button
 }
 
 .text-input {
-    border-style: groove;
-    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-    background: white;
-    font-size:20px;
-    border-color: #006100;
-    border-width:3px;
-    border-radius: 5px;
-    width:48px;
-    margin-top:20px;
-    color:black;
-    text-align:center;
+    width: 48px;
+    padding: 10px;
+    color: black;
+    text-align: center;
+    border: 2px solid #00aa00;
+    font-weight: bold;
 }
 
 .number {
