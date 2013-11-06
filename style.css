@@ -216,12 +216,18 @@ match all the button
     overflow: hidden;
     white-space: nowrap;
     box-sizing: border-box;
+    -webkit-animation: marquee 20s linear infinite;
     animation: marquee 20s linear infinite;
     font-family: 'VT323', monospace;
     color: black;
     background-color: #888;
     border: 3px solid black;
     padding: 10px 5px;
+}
+
+@-webkit-keyframes marquee {
+    0%   { text-indent: 100% }
+    100% { text-indent: -100% }
 }
 
 @keyframes marquee {
