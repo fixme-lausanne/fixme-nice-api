@@ -89,9 +89,9 @@ function updateSpaceInformation() {
                     toggleDiv(closeBlock, 0);
                     document.hoursform.hours.focus();
                 }
-                
+
                 launchAutoRefresh(closing_time);
-                
+
                 msgBlock.innerHTML = parsed_text.state.message;
                 toggleDiv(msgBlock, 1);
                 toggleDiv(loadBlock, 0);
@@ -132,11 +132,12 @@ function onPageLoad() {
 }
 
 
-function openSpace(hoursOpen) {
+function openSpace(extend) {
     "use strict";
-    if (hoursOpen === undefined) {
-        var hoursForm = document.hoursform.hours;
-        hoursOpen = hoursForm.value;
+    var hoursOpen = document.hoursform.hours.value;
+    if (hoursOpen === undefined || extend) {
+        hoursOpen = prompt("Hours:", 1);
+        if (hoursOpen === null) return;
     }
     var confirm_return = confirm("Are you sure you want to open the hackerspace ?");
     if (confirm_return) {
@@ -153,12 +154,6 @@ function openSpace(hoursOpen) {
         }
         requestObject.send(null);
     }
-}
-
-function promptOpenSpace(){
-    "use strict";
-    var hours = prompt("Hours:", 1);
-    openSpace(hours);
 }
 
 function closeSpace() {
@@ -194,7 +189,7 @@ function update_date(date) {
         minutes = "0" + minutes;
     }
     setTextForId("minute", minutes);
-    
+
     var seconds = String(date.getSeconds());
     if (seconds.length == 1) {
         seconds = "0" + seconds;
