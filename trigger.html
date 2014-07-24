@@ -11,7 +11,7 @@
 </head>
 <body onload="onPageLoad()">
 <div id="container" class="row">
-    <h1>FIXME Control</h1>
+    <h1><a href="?">FIXME Control</a></h1>
 
     <div class="col-md-6">
         <h2>Trigger status</h2>
@@ -19,7 +19,7 @@
         <div id="open-block">
             <form name="hoursform" id="hoursform">
                 <span class="glyphicon glyphicon-minus-sign" onclick="changeHour(0)"></span>
-                <input id="hours" name="hours" size="2" class="text-input" maxlength="2"
+                <input id="hours" name="hours" size="2" class="form-control input-lg text-input" maxlength="2"
                     onkeyup="checkHours(this)" value="1">
                 <span class="glyphicon glyphicon-plus-sign" onclick="changeHour(1)"></span>
                 <input type="button" onclick="openSpace()" value="Open"
@@ -60,7 +60,7 @@
             <h3 for="breathSlider">Breathing leds:</h3>
             <input type="range" value=0 min=0 max=5000 step=10
                 onchange="changeBreathSpeed()" onmouseup="setTheBreathSpeed()"
-                id="breathSlider" class="breathSlider">
+                id="breathSlider">
             <span id="breathValue">0 ms</span>
         </div>
     </div>

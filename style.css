@@ -45,7 +45,7 @@ p {
 
 #container {
     margin: auto;
-    width: 800px;
+    max-width: 800px;
     min-height: 100%;
     background-color: rgba(50, 50, 50, 0.8);
     padding: 10px 25px;
@@ -63,9 +63,10 @@ fieldset {
 Main app block, central.
 */
 
-h1, h2, h3, h4, h5, h6 {
+h1 a,h1 a:hover,  h1, h2, h3, h4, h5, h6 {
     color: #55DD00;
     font-family: 'Share Tech', Monospace, sans-serif;
+    text-decoration: none;
 }
 
 .index {
@@ -95,25 +96,14 @@ all the button
     margin-top: 20px;
 }
 
-.text-input {
-    font-size: 1.5em;
-    padding: 2px;
-    color: black;
-    text-align: center;
-    border: 2px solid #00aa00;
-    font-weight: bold;
-}
-
-.number {
-}
-
 .separator:before {
   content: ":";
 }
 
-.breathSlider{
+#breathSlider {
     padding: 0;
     vertical-align: middle;
+    width: 50%;
 }
 
 #breathBox span {
@@ -161,4 +151,11 @@ all the button
 #close-block,
 #msg-block {
     display: none;
+}
+
+.text-input {
+    width: 48px;
+    display: inline;
+    text-align: center;
+    padding: 0px;
 }
