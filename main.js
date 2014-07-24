@@ -103,6 +103,7 @@ function updateSpaceInformation() {
 }
 
 function calcDiff() {
+    if(closing_time == undefined) return new Date(0);
     var diff_time = Number(closing_time.getTime()) - new Date().getTime();
     if (diff_time > 0) {
         return new Date(diff_time);
