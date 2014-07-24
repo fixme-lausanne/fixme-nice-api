@@ -259,7 +259,7 @@ function switchTheLightToPolice() {
 
 var Police = {
     policeEvent: 0,
-    delay: 10,
+    delay: 100,
     switchOff: function switchOff() {
         window.clearInterval(Police.policeEvent)
     },
