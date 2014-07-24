@@ -6,7 +6,7 @@ var msgBlock   =  document.getElementById("msg-block");
 var loadBlock  =  document.getElementById("loading-block");
 var closeBlock =  document.getElementById("close-block");
 var openBlock  =  document.getElementById("open-block");
-var slider	   =  document.getElementById("breathSlider")
+var slider       =  document.getElementById("breathSlider")
 
 function toggleDiv(div, show) {
     "use strict";
@@ -205,7 +205,7 @@ function setTextForId(id, text) {
 
 function switchTheLight(red, green, blue) {
     "set strict";
-	var breathValue = slider.value;
+    var breathValue = slider.value;
     var requestUrl = "http://led.fixme.ch/rgb/";
     var requestObject = new XMLHttpRequest();
     requestObject.open("POST", requestUrl, true);
@@ -228,7 +228,7 @@ function setTheBreathSpeed() {
 }
 
 function switchTheLightColor(color) {
-	Police.switchOff()
+    Police.switchOff()
     switch(color) {
         case 'red':
             switchTheLight(255, 0, 0)
@@ -254,7 +254,7 @@ function switchTheLightOff() {
 }
 
 function switchTheLightToPolice() {
-	Police.switchOn()
+    Police.switchOn()
 }
 
 function Police(){};
@@ -262,15 +262,15 @@ Police.policeEvent = 0;
 Police.delay = 100;
 
 Police.switchOff = function switchOff() {
-	window.clearInterval(Police.policeEvent)
+    window.clearInterval(Police.policeEvent)
 }
 
 Police.switchOn = function switchOn(red) {
-	if (red) {
-		switchTheLight(255, 0, 0);
-	} else {
-		switchTheLight(0, 0, 255);
-	}
-	Police.policeEvent = window.setTimeout(function() { Police.switchOn(!red)}, Police.delay)
+    if (red) {
+        switchTheLight(255, 0, 0);
+    } else {
+        switchTheLight(0, 0, 255);
+    }
+    Police.policeEvent = window.setTimeout(function() { Police.switchOn(!red)}, Police.delay)
 }
 
