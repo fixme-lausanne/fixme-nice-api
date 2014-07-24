@@ -211,12 +211,13 @@ function switchTheLight(red, green, blue) {
 }
 
 function changeBreathSpeed(){
-    document.getElementById("breathValue").innerText = slider.value;
+    document.getElementById("breathValue").innerText = slider.value + ' ms';
 }
 
 function setTheBreathSpeed() {
     "set strict";
-    var breathValue = slider.value;
+    var breathValue = slider.value.substring(0, -3);
+    console.log(breathValue);
     var requestUrl = "http://led.fixme.ch/rgb/";
     var requestObject = new XMLHttpRequest();
     requestObject.open("POST", requestUrl, true);

@@ -86,25 +86,13 @@ all the button
     vertical-align: middle;
 }
 
+.btn {
+    margin: 5px 5px 0 0;
+}
+
 .btn-open {
     display: block;
     margin-top: 20px;
-}
-
-.btn-red {
-    background-color: #aa0000;
-}
-
-.btn-green {
-    background-color: #00aa00;
-}
-
-.btn-police {
-    background-color: #0000aa;
-}
-
-.btn-blue {
-    background-color: #0000aa;
 }
 
 .text-input {
@@ -122,6 +110,20 @@ all the button
 .separator:before {
   content: ":";
 }
+
+.breathSlider{
+    padding: 0;
+    vertical-align: middle;
+}
+
+#breathBox span {
+    display: inline-block;
+}
+
+#breathBox {
+    margin: 5px 0;
+}
+
 .numbers {
     width: 200px;
     text-align: center;
@@ -130,19 +132,6 @@ all the button
     margin: 5px;
 }
 
-.breathSlider{
-    padding: 0;
-    vertical-align: middle;
-}
-
-#breathBox span {
-    width: 48px;
-    display: inline-block;
-}
-
-#breathBox {
-    margin: 5px 0;
-}
 
 /* Make it a marquee */
 .marquee {
