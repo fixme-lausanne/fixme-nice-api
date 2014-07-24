@@ -10,11 +10,10 @@
   <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body onload="onPageLoad()">
-<div id="container">
-    <div id="wrapper">
+<div id="container" class="row">
     <h1>Hackerspace control</h1>
 
-    <div class='central-block'>
+    <div class="col-md-6">
         <h2>Status</h2>
 
         <div id="open-block">
@@ -47,10 +46,10 @@
         </div>
 
         <div id="msg-block"></div>
-
         <div id="loading-block"><p>Loading ...</p></div>
+    </div>
 
-        <br/>
+    <div class="col-md-6">
         <h2>Lights</h2>
         <input type="button" onclick="switchTheLightColor('red')" value="ON" class="button btn_red">
         <input type="button" onclick="switchTheLightColor('green')" value="ON" class="button btn_green">
@@ -67,7 +66,6 @@
                 id="breathSlider" class="breathSlider">
             <span id="breathValue">0</span>
         </div>
-    </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
