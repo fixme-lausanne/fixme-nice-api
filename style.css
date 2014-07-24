@@ -23,18 +23,16 @@ simple way to have an unified background that cover all the screen.
 html {
     width: 100%;
     height: 100%;
-    
-    background-color: #111111;
-    
-    background: black url('img/head_front.svg') no-repeat;
-    background-size: contain;
-    background-position: right;
-    background-attachment:fixed;
 }
 
 body {
     width: 100%;
     height: 100%;
+    background-color: #111111;
+    background: black url('img/head_front.svg') no-repeat;
+    background-size: contain;
+    background-position: right;
+    background-attachment:fixed;
 }
 
 p {
