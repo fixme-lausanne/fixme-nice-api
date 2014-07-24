@@ -12,12 +12,16 @@ simple way to have an unified background that cover all the screen.
 */
 
 * {
-   font-family: 'Nixie One', sans-serif;
-   color: #eeeeee;
-   
-   margin: 0;
-   padding: 0;
-   border: 0;
+    font-family: 'Nixie One', sans-serif;
+    color: #eeeeee;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 html {
@@ -51,11 +55,8 @@ p {
 Legend act here as a menu, give the same green border than central-block.
 */
 legend {
-	
 }
-
 fieldset {
-	
 }
 
 /*
@@ -65,21 +66,6 @@ Main app block, central.
 h1, h2, h3, h4, h5, h6 {
     color: #55DD00;
     font-family: 'Share Tech', Monospace, sans-serif;
-}
-
-h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
 }
 
 .index {
@@ -93,79 +79,37 @@ h3 {
 }
 
 /*
-API message block
+all the button
 */
-#msg-block {
-    padding: 5px;
+.glyphicon {
+    font-size: 32px;
+    vertical-align: middle;
 }
 
-/*
-buttons
-*/
-.plusminux {
-    padding: 0 10px;
-    display: inline-block;
-    width: 32px;
-    color: #00aa00;
-    font-size: 48px;
-    cursor: pointer;
+.btn-open {
+    display: block;
+    margin-top: 20px;
 }
 
-/*
-match all the button
-*/
-
-.button, button, input[type=submit] {
-    min-width: 100px;
-    cursor: pointer;
+.btn-red {
+    background-color: #aa0000;
 }
 
-.button, button, input[type=submit] {
-    padding: 10px 10px;
-    margin: 5px;
-    background-color: #333;
-    border: 2px solid #eee;
+.btn-green {
+    background-color: #00aa00;
 }
 
-.btn_red {
-    border-color: #aa0000;
+.btn-police {
+    background-color: #0000aa;
 }
 
-.btn_green {
-    border-color: #00aa00;
-}
-
-.btn_blue {
-    border-color: #0000aa;
-}
-
-.button:active, button:active, input[type=submit]:active {
-    border-color: #777777;
-}
-
-.btn_red:active {
-    border-color: #770000;
-}
-
-.btn_green:active {
-    border-color: #007700;
-}
-
-.btn_blue:active {
-    border-color: #000077;
-}
-
-.button[disabled], button[disabled], input[type=submit][disabled] {
-    border-color: transparent;
-}
-
-.button[disabled]:active, button[disabled]:active, input[type=submit][disabled]:active {
-    border-color: transparent;
+.btn-blue {
+    background-color: #0000aa;
 }
 
 .text-input {
-    width: 48px;
-    padding: 10px;
+    font-size: 1.5em;
+    padding: 2px;
     color: black;
     text-align: center;
     border: 2px solid #00aa00;

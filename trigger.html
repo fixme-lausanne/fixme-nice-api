@@ -14,25 +14,24 @@
     <h1>FIXME Control</h1>
 
     <div class="col-md-6">
-        <h2>Status</h2>
-
+        <h2>Trigger status</h2>
+        <div id="msg-block" class="lead"></div>
         <div id="open-block">
             <form name="hoursform" id="hoursform">
-                <div class="plusminux minux" onclick="changeHour(0)">-</div>
+                <span class="glyphicon glyphicon-minus-sign" onclick="changeHour(0)"></span>
                 <input id="hours" name="hours" size="2" class="text-input" maxlength="2"
                     onkeyup="checkHours(this)" value="1">
-                <div class="plusminux plus" onclick="changeHour(1)">+</div>
+                <span class="glyphicon glyphicon-plus-sign" onclick="changeHour(1)"></span>
                 <input type="button" onclick="openSpace()" value="Open"
-                    class="button" id="openbutton" disabled>
+                    class="btn btn-default btn-open" id="openbutton" disabled>
             </form>
         </div>
-
         <div id="close-block">
             <form>
                 <input type="button" onclick="closeSpace()" value="Close"
-                class="button">
+                    class="btn btn-default">
                 <input type="button" onclick="openSpace(true)" value="Extend"
-                class="button">
+                    class="btn btn-default">
                 <br>
                 <p>The space is still open for:</p>
                 <div class="numbers">
@@ -45,19 +44,17 @@
             </form>
         </div>
 
-        <div id="msg-block"></div>
         <div id="loading-block"><p>Loading ...</p></div>
     </div>
 
     <div class="col-md-6">
-        <h2>Lights</h2>
-        <input type="button" onclick="switchTheLightColor('red')" value="ON" class="button btn_red">
-        <input type="button" onclick="switchTheLightColor('green')" value="ON" class="button btn_green">
-        <input type="button" onclick="switchTheLightColor('blue')" value="ON" class="button btn_blue">
-        <input type="button" onclick="switchTheLightOn()" value="ON" class="button btn_white">
-        <br/>
-        <input type="button" onclick="switchTheLightOff()" value="OFF" class="button">
-        <input type="button" onclick="switchTheLightToPolice()" value="Police!" class="button">
+        <h2>LED Lights</h2>
+        <input class="btn btn-default btn-red" type="button" onclick="switchTheLightColor('red')" value="RED">
+        <input class="btn btn-default btn-green" type="button" onclick="switchTheLightColor('green')" value="GREEN">
+        <input class="btn btn-default btn-blue" type="button" onclick="switchTheLightColor('blue')" value="BLUE">
+        <input class="btn btn-default" type="button" onclick="switchTheLightOn()" value="WHITE">
+        <input class="btn btn-default" type="button" onclick="switchTheLightOff()" value="OFF">
+        <input class="btn btn-default btn-police" type="button" onclick="switchTheLightToPolice()" value="Police!">
         <br/>
         <div id="breathBox">
             <label for="breathSlider">Breath:</label>
