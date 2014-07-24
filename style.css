@@ -156,6 +156,7 @@ all the button
 }
 
 .text-input {
+    font-weight: bold;
     width: 48px;
     display: inline;
     text-align: center;
