@@ -107,12 +107,12 @@ function updateSpaceInformation() {
 }
 
 function calcDiff() {
-  var diff_time = Number(closing_time.getTime()) - new Date().getTime();
-  if (diff_time > 0) {
-      return new Date(diff_time);
-  } else {
-      return new Date(0);
-  }
+    var diff_time = Number(closing_time.getTime()) - new Date().getTime();
+    if (diff_time > 0) {
+        return new Date(diff_time);
+    } else {
+        return new Date(0);
+    }
 }
 
 function launchAutoRefresh() {
@@ -228,7 +228,7 @@ function setTheBreathSpeed() {
 }
 
 function switchTheLightColor(color) {
-    Police.switchOff()
+    Police.switchOff();
     switch(color) {
         case 'red':
             switchTheLight(255, 0, 0)
@@ -244,33 +244,32 @@ function switchTheLightColor(color) {
 
 function switchTheLightOn() {
     "set strict";
-  switchTheLight(255, 255, 255)
+    switchTheLight(255, 255, 255);
 }
 
 function switchTheLightOff() {
-  "set strict";
-  Police.switchOff()
-  switchTheLight(0, 0, 0)
+    "set strict";
+    Police.switchOff();
+    switchTheLight(0, 0, 0);
 }
 
 function switchTheLightToPolice() {
     Police.switchOn()
 }
 
-function Police(){};
-Police.policeEvent = 0;
-Police.delay = 100;
-
-Police.switchOff = function switchOff() {
-    window.clearInterval(Police.policeEvent)
-}
-
-Police.switchOn = function switchOn(red) {
-    if (red) {
-        switchTheLight(255, 0, 0);
-    } else {
-        switchTheLight(0, 0, 255);
-    }
-    Police.policeEvent = window.setTimeout(function() { Police.switchOn(!red)}, Police.delay)
-}
+var Police = {
+    policeEvent: 0,
+    delay: 10,
+    switchOff: function switchOff() {
+        window.clearInterval(Police.policeEvent)
+    },
+    switchOn: function switchOn(red) {
+        if (red) {
+            switchTheLight(255, 0, 0);
+        } else {
+            switchTheLight(0, 0, 255);
+        }
+        Police.policeEvent = window.setTimeout(function() { Police.switchOn(!red)}, Police.delay)
+    },
+};
 
