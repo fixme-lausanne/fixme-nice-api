@@ -57,8 +57,11 @@ function changeHour(inc) {
 }
 
 var apiUrl = "https://fixme.ch/status.json";
+var closing_time;
 function updateSpaceInformation() {
     "use strict";
+    toggleDiv(openBlock, 0);
+    toggleDiv(closeBlock, 0);
     toggleDiv(msgBlock, 0);
     toggleDiv(loadBlock, 1);
 
@@ -72,9 +75,10 @@ function updateSpaceInformation() {
                 try {
                     var parsed_text = jsonParse(xhr.responseText),
                         isOpen = parsed_text.state.open,
-                        open_duration = parsed_text.state.ext_duration,
-                        closing_time = new Date(Number(parsed_text.state.lastchange) * 1000);
+                        open_duration = parsed_text.state.ext_duration;
+                    closing_time = new Date(Number(parsed_text.state.lastchange) * 1000);
                     closing_time.setHours(closing_time.getHours() + open_duration);
+                    update_date(calcDiff(closing_time))
                 } catch (err) {
                     /*json parsing failed or doesn't contain the correct element
                     alert(err);*/
@@ -90,11 +94,10 @@ function updateSpaceInformation() {
                     document.hoursform.hours.focus();
                 }
 
-                launchAutoRefresh(closing_time);
-
                 msgBlock.innerHTML = parsed_text.state.message;
                 toggleDiv(msgBlock, 1);
                 toggleDiv(loadBlock, 0);
+                checkHours(document.getElementById("hours"));
             } else {
                 displayError();
             }
@@ -103,7 +106,7 @@ function updateSpaceInformation() {
     xhr.send(null);
 }
 
-function calcDiff(closing_time) {
+function calcDiff() {
   var diff_time = Number(closing_time.getTime()) - new Date().getTime();
   if (diff_time > 0) {
       return new Date(diff_time);
@@ -112,23 +115,17 @@ function calcDiff(closing_time) {
   }
 }
 
-var autoRefreshTime;
-function launchAutoRefresh(closing_time) {
-  if(autoRefreshTime)
-    clearInterval();
-  autoRefreshTime = setInterval(function () {
+function launchAutoRefresh() {
+  setInterval(function () {
     update_date(calcDiff(closing_time))
-  }, 100);
+  }, 300);
 }
 
 function onPageLoad() {
     "use strict";
-    toggleDiv(openBlock, 0);
-    toggleDiv(closeBlock, 0);
-    toggleDiv(msgBlock, 0);
+    launchAutoRefresh();
     updateSpaceInformation();
-    setInterval(onPageLoad, 60 * 1000);
-    checkHours(document.getElementById("hours"));
+    setInterval(updateSpaceInformation, 60 * 1000);
 }
 
 
