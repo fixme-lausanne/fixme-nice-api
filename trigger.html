@@ -1,81 +1,82 @@
 <!DOCTYPE html>
-<html>
+ <html lang="en">
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
-  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10"/>
-  <link rel="stylesheet" href="style.css" type="text/css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <title>Hackerspace trigger</title>
-  <link rel="shortcut icon"
-   href="favicon.ico" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body onload="onPageLoad()">
-  <div id="container">
+<div id="container">
     <div id="wrapper">
-      <h1>Trigger hackerspace status</h1>
+    <h1>Hackerspace control</h1>
 
-      <div class='central-block'>
+    <div class='central-block'>
+        <h2>Status</h2>
 
-          <h2>Status</h2>
-
-          <div id="open-block">
+        <div id="open-block">
             <form name="hoursform" id="hoursform">
-              <div class="plusminux minux" onclick="changeHour(0)">-</div>
-              <input id="hours" name="hours" size="2" class="text-input" maxlength=
-              "2" onkeyup="checkHours(this)" value="1">
-              <div class="plusminux plus" onclick="changeHour(1)">+</div>
-              <input type="button" onclick="openSpace()" value="Open"
-              class="button" id="openbutton" disabled>
+                <div class="plusminux minux" onclick="changeHour(0)">-</div>
+                <input id="hours" name="hours" size="2" class="text-input" maxlength="2"
+                    onkeyup="checkHours(this)" value="1">
+                <div class="plusminux plus" onclick="changeHour(1)">+</div>
+                <input type="button" onclick="openSpace()" value="Open"
+                    class="button" id="openbutton" disabled>
             </form>
-          </div>
+        </div>
 
-          <div id="close-block">
+        <div id="close-block">
             <form>
-              <input type="button" onclick="closeSpace()" value="Close"
-              class="button">
-              <input type="button" onclick="openSpace(true)" value="Extend"
-              class="button">
-              <br>
-            <p>The space is still open for:</p>
-            <div class="numbers">
-              <span class="number" id="hour">21</span>
-              <span class="separator"></span>
-              <span class="number" id="minute">45</span>
-              <span class="separator"></span>
-              <span class="number" id="second">38</span>
-            </div>
+                <input type="button" onclick="closeSpace()" value="Close"
+                class="button">
+                <input type="button" onclick="openSpace(true)" value="Extend"
+                class="button">
+                <br>
+                <p>The space is still open for:</p>
+                <div class="numbers">
+                    <span class="number" id="hour">21</span>
+                    <span class="separator"></span>
+                    <span class="number" id="minute">45</span>
+                    <span class="separator"></span>
+                    <span class="number" id="second">38</span>
+                </div>
             </form>
-          </div>
+        </div>
 
-          <div id="msg-block"></div>
+        <div id="msg-block"></div>
 
-          <div id="loading-block"><p>Loading ...</p></div>
+        <div id="loading-block"><p>Loading ...</p></div>
 
-          <br/>
-            <h2>Lights</h2>
-            <input type="button" onclick="switchTheLightColor('red')" value="ON" class="button btn_red">
-            <input type="button" onclick="switchTheLightColor('green')" value="ON" class="button btn_green">
-            <input type="button" onclick="switchTheLightColor('blue')" value="ON" class="button btn_blue">
-            <input type="button" onclick="switchTheLightOn()" value="ON" class="button btn_white">
-            <br/>
-            <input type="button" onclick="switchTheLightOff()" value="OFF" class="button">
-            <input type="button" onclick="switchTheLightToPolice()" value="Police!" class="button">
-            <br/>
-            <div id="breathBox">
-                <label for="breathSlider">Breath:</label>
-                <input type="range" value=0 min=0 max=5000 step=10 onchange="changeBreathSpeed()" onmouseup="setTheBreathSpeed()" id="breathSlider" class="breathSlider">
-                <span id="breathValue">0</span>
-            </div>
-      </div>
+        <br/>
+        <h2>Lights</h2>
+        <input type="button" onclick="switchTheLightColor('red')" value="ON" class="button btn_red">
+        <input type="button" onclick="switchTheLightColor('green')" value="ON" class="button btn_green">
+        <input type="button" onclick="switchTheLightColor('blue')" value="ON" class="button btn_blue">
+        <input type="button" onclick="switchTheLightOn()" value="ON" class="button btn_white">
+        <br/>
+        <input type="button" onclick="switchTheLightOff()" value="OFF" class="button">
+        <input type="button" onclick="switchTheLightToPolice()" value="Police!" class="button">
+        <br/>
+        <div id="breathBox">
+            <label for="breathSlider">Breath:</label>
+            <input type="range" value=0 min=0 max=5000 step=10
+                onchange="changeBreathSpeed()" onmouseup="setTheBreathSpeed()"
+                id="breathSlider" class="breathSlider">
+            <span id="breathValue">0</span>
+        </div>
     </div>
-  </div>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="main.js"></script>
-  <script type="text/javascript" src="json_sans_eval.js"></script>
-  <script type="text/javascript" src="https://konami-js.googlecode.com/svn/trunk/konami.js"></script>
-  <script type="text/javascript">
-    konami = new Konami()
-    konami.load("https://www.youtube.com/watch?v=1Wytn-_MSBo");
-  </script>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="json_sans_eval.js"></script>
+<script type="text/javascript" src="https://konami-js.googlecode.com/svn/trunk/konami.js"></script>
+<script type="text/javascript">
+konami = new Konami()
+konami.load("https://www.youtube.com/watch?v=1Wytn-_MSBo");
+</script>
 </body></html>
