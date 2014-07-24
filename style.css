@@ -88,6 +88,8 @@ all the button
 }
 
 .btn {
+    width: 120px;
+    height: 64px;
     margin: 5px 5px 0 0;
 }
 
