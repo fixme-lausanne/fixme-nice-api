@@ -235,3 +235,8 @@ match all the button
     100% { text-indent: -100% }
 }
 
+#open-block,
+#close-block,
+#msg-block {
+    display: none;
+}

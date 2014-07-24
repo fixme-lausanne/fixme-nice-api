@@ -11,13 +11,9 @@ var slider       =  document.getElementById("breathSlider")
 function toggleDiv(div, show) {
     "use strict";
     if (show) {
-        div.style.visibility = "visible";
-        div.style.overflow = "none";
-        div.style.height = "auto";
+        div.style.display = "block";
     } else {
-        div.style.visibility = "hidden";
-        div.style.overflow = "hidden";
-        div.style.height = "0px";
+        div.style.display = "none";
     }
 }
 
@@ -60,9 +56,9 @@ var apiUrl = "https://fixme.ch/status.json";
 var closing_time;
 function updateSpaceInformation() {
     "use strict";
-    toggleDiv(openBlock, 0);
-    toggleDiv(closeBlock, 0);
-    toggleDiv(msgBlock, 0);
+    //toggleDiv(openBlock, 0);
+    //toggleDiv(closeBlock, 0);
+    //toggleDiv(msgBlock, 0);
     toggleDiv(loadBlock, 1);
 
     var xhr = new XMLHttpRequest();

@@ -16,10 +16,10 @@
       <h1>Trigger hackerspace status</h1>
 
       <div class='central-block'>
-          <h2>Status</h2>
-          <div id="loading-block"><p>Loading ...</p></div>
 
-          <div id="open-block" style="visibility:hidden;">
+          <h2>Status</h2>
+
+          <div id="open-block">
             <form name="hoursform" id="hoursform">
               <div class="plusminux minux" onclick="changeHour(0)">-</div>
               <input id="hours" name="hours" size="2" class="text-input" maxlength=
@@ -29,7 +29,8 @@
               class="button" id="openbutton" disabled>
             </form>
           </div>
-          <div id="close-block" style="visibility:hidden;">
+
+          <div id="close-block">
             <form>
               <input type="button" onclick="closeSpace()" value="Close"
               class="button">
@@ -46,7 +47,11 @@
             </div>
             </form>
           </div>
+
           <div id="msg-block"></div>
+
+          <div id="loading-block"><p>Loading ...</p></div>
+
           <br/>
             <h2>Lights</h2>
             <input type="button" onclick="switchTheLightColor('red')" value="ON" class="button btn_red">
