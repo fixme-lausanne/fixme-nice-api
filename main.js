@@ -2,104 +2,71 @@
 /*global  jsonParse*/
 /*global  confirm*/
 
-var msgBlock   =  document.getElementById("msg-block");
-var loadBlock  =  document.getElementById("loading-block");
-var closeBlock =  document.getElementById("close-block");
-var openBlock  =  document.getElementById("open-block");
-var slider       =  document.getElementById("breathSlider")
+var closing_time;
+var url_twitter = "https://fixme.ch/cgi-bin/twitter.pl";
+var url_api = "https://fixme.ch/status.json";
+var url_led = "http://led.fixme.ch/rgb/";
 
-function toggleDiv(div, show) {
+var msgBlock   =  $("#msg-block");
+var loadBlock  =  $("#loading-block");
+var closeBlock =  $("#close-block");
+var openBlock  =  $("#open-block");
+var slider     =  $("#breathSlider");
+
+function displayError(err) {
     "use strict";
-    if (show) {
-        div.style.display = "block";
-    } else {
-        div.style.display = "none";
-    }
+    loadBlock.hide();
+    msgBlock.show();
+    msgBlock.text("Error connecting to fixme server: "+ err);
 }
 
-function displayError() {
-    "use strict";
-    msgBlock.style.background = "red";
-    msgBlock.innerHTML = "Error connecting to fixme server";
-}
-
-var baseUrl = "https://fixme.ch/cgi-bin/twitter.pl";
-function checkHours(hoursForm) {
-    "use strict";
-    var hoursOpen = hoursForm.value,
-        formParent = hoursForm.parentElement,
-        openButton = formParent.openbutton;
-    hoursOpen = Math.floor(hoursOpen);
-    //TODO throw error if parentElement is null
-    if (openButton == null) {
-        alert("The page was malformed, you should reload it now.");
-    }
+function checkHours() {
+    var hoursForm = $('#hours');
+    var hoursOpen = Math.floor(hoursForm.val());
+    var openButton = $('#openbutton');
     if (isNaN(hoursOpen) || hoursOpen < 1) {
-        openButton.disabled = true;
+        openButton.attr('disabled', 'disabled');
     } else {
-        openButton.disabled = false;
+        openButton.removeAttr('disabled');
     }
 }
 
 function changeHour(inc) {
     "use strict";
-    var val = document.getElementById("hours");
+    var hours = $("#hours");
     if (inc) {
-        val.value = parseInt(val.value, 10) + 1;
-    } else if (val.value > 1) {
-        val.value = parseInt(val.value, 10) - 1;
+        hours.val(parseInt(hours.val(), 10) + 1);
+    } else if (hours.val() > 1) {
+        hours.val(parseInt(hours.val(), 10) - 1);
     }
-    checkHours(val);
+    checkHours();
 }
 
-var apiUrl = "https://fixme.ch/status.json";
-var closing_time;
 function updateSpaceInformation() {
     "use strict";
-    //toggleDiv(openBlock, 0);
-    //toggleDiv(closeBlock, 0);
-    //toggleDiv(msgBlock, 0);
-    toggleDiv(loadBlock, 1);
+    loadBlock.show();
 
-    var xhr = new XMLHttpRequest();
+    $.getJSON(url_api, function(data){
+        var isOpen = data.state.open;
+        var open_duration = data.state.ext_duration;
+        closing_time = new Date(data.state.lastchange * 1000);
+        closing_time.setHours(closing_time.getHours() + open_duration);
+        update_date(calcDiff(closing_time))
 
-    xhr.open("GET", apiUrl, true);
+        if (isOpen) {
+            openBlock.hide();
+            closeBlock.show();
+        } else {
+            openBlock.show();
+            closeBlock.hide();
+            document.hoursform.hours.focus();
+        }
 
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                try {
-                    var parsed_text = jsonParse(xhr.responseText),
-                        isOpen = parsed_text.state.open,
-                        open_duration = parsed_text.state.ext_duration;
-                    closing_time = new Date(Number(parsed_text.state.lastchange) * 1000);
-                    closing_time.setHours(closing_time.getHours() + open_duration);
-                    update_date(calcDiff(closing_time))
-                } catch (err) {
-                    /*json parsing failed or doesn't contain the correct element
-                    alert(err);*/
-                    displayError();
-                    return;
-                }
-                if (isOpen) {
-                    toggleDiv(openBlock, 0);
-                    toggleDiv(closeBlock, 1);
-                } else {
-                    toggleDiv(openBlock, 1);
-                    toggleDiv(closeBlock, 0);
-                    document.hoursform.hours.focus();
-                }
-
-                msgBlock.innerHTML = parsed_text.state.message;
-                toggleDiv(msgBlock, 1);
-                toggleDiv(loadBlock, 0);
-                checkHours(document.getElementById("hours"));
-            } else {
-                displayError();
-            }
-      }
-    };
-    xhr.send(null);
+        msgBlock.html(data.state.message);
+        msgBlock.show();
+        loadBlock.hide();
+        checkHours();
+    });
 }
 
 function calcDiff() {
@@ -135,39 +102,32 @@ function openSpace(extend) {
     }
     var confirm_return = confirm("Are you sure you want to open the hackerspace ?");
     if (confirm_return) {
-        msgBlock.innerHTML = "Opening space...";
-        var requestUrl = baseUrl + "?do=custom&hours=" + hoursOpen,
+        msgBlock.html("Opening space...");
+        var requestUrl = url_twitter + "?do=custom&hours=" + hoursOpen,
             requestObject = new XMLHttpRequest();
-        requestObject.open("GET", requestUrl, true);
-        requestObject.onreadystatechange = function () {
-            if (requestObject.readyState === 4) {
-                if (requestObject.status === 200) {
-                    msgBlock.innerHTML = requestObject.responseText;
-                }
-            }
-        }
-        requestObject.send(null);
+        $.ajax(requestUrl, {
+            type: 'GET',
+            complete: function(data){
+                msgBlock.html(data.responseText);
+            },
+        });
     }
 }
 
 function closeSpace() {
     "use strict";
-    var requestUrl = baseUrl + "?do=close";
-    var requestObject = new XMLHttpRequest();
     var confirm_value = confirm("Are you sure you want to close the space ?");
     if (!confirm_value) {
         return;
     }
-    msgBlock.innerHTML = "Closing space...";
-    requestObject.open("GET", requestUrl, true);
-    requestObject.onreadystatechange = function() {
-        if (requestObject.readyState == 4) {
-            if (requestObject.status == 200) {
-                msgBlock.innerHTML = requestObject.responseText;
-            }
-        }
-    }
-    requestObject.send(null);
+    msgBlock.text("Closing space...");
+    var requestUrl = url_twitter + "?do=close";
+    $.ajax(requestUrl, {
+        type: 'GET',
+        complete: function(data){
+            msgBlock.html(data.responseText);
+        },
+    });
 }
 
 function update_date(date) {
@@ -176,53 +136,37 @@ function update_date(date) {
     if (hours.length == 1) {
         hours = "0" + hours;
     }
-    setTextForId("hour", hours);
+    $("#hour").text(hours);
 
     var minutes = String(date.getMinutes());
     if (minutes.length == 1) {
         minutes = "0" + minutes;
     }
-    setTextForId("minute", minutes);
+    $("#minute").text(minutes);
 
     var seconds = String(date.getSeconds());
     if (seconds.length == 1) {
         seconds = "0" + seconds;
     }
-    setTextForId("second", seconds);
-}
-
-function setTextForId(id, text) {
-    "use strict";
-    if(document.all){
-         document.getElementById(id).innerText = text;
-    } else{
-        document.getElementById(id).textContent = text;
-    }
+    $("#second").text(seconds);
 }
 
 function switchTheLight(red, green, blue) {
-    "set strict";
-    var breathValue = slider.value;
-    var requestUrl = "http://led.fixme.ch/rgb/";
-    var requestObject = new XMLHttpRequest();
-    requestObject.open("POST", requestUrl, true);
-    requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    requestObject.send("red=" + red + "&green=" + green + "&blue=" + blue + "&breathe=" + breathValue);
+    $.ajax(url_led, {
+        type: 'POST',
+        data: {red: red, green: green, blue: blue, breathe: slider.value.substring(0, -3)},
+    });
 }
 
 function changeBreathSpeed(){
-    document.getElementById("breathValue").innerText = slider.value + ' ms';
+    $('#breathValue').text(slider.val() + ' ms');
 }
 
 function setTheBreathSpeed() {
-    "set strict";
-    var breathValue = slider.value.substring(0, -3);
-    console.log(breathValue);
-    var requestUrl = "http://led.fixme.ch/rgb/";
-    var requestObject = new XMLHttpRequest();
-    requestObject.open("POST", requestUrl, true);
-    requestObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    requestObject.send("breathe=" + breathValue);
+    $.ajax(url_led, {
+        type: 'POST',
+        data: {breathe: slider.value.substring(0, -3)},
+    });
 }
 
 function switchTheLightColor(color) {
@@ -270,4 +214,8 @@ var Police = {
         Police.policeEvent = window.setTimeout(function() { Police.switchOn(!red)}, Police.delay)
     },
 };
+
+$(document).ready(function(){
+    onPageLoad();
+});
 

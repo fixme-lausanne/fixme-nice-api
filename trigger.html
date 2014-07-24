@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="favicon.ico" />
 </head>
-<body onload="onPageLoad()">
+<body>
 <div id="container" class="row">
     <h1><a href="?">FIXME Control</a></h1>
 
@@ -18,12 +18,12 @@
         <div id="msg-block" class="lead"></div>
         <div id="open-block">
             <form name="hoursform" id="hoursform">
-                <span class="glyphicon glyphicon-minus-sign" onclick="changeHour(0)"></span>
+                <span id="btn-plus" class="glyphicon glyphicon-minus-sign" onclick="changeHour(0)"></span>
                 <input id="hours" name="hours" size="2" class="form-control input-lg text-input" maxlength="2"
                     onkeyup="checkHours(this)" value="1">
                 <span class="glyphicon glyphicon-plus-sign" onclick="changeHour(1)"></span>
                 <input type="button" onclick="openSpace()" value="Open"
-                    class="btn btn-lg btn-default btn-open" id="openbutton" disabled>
+                    class="btn btn-default btn-lg btn-open" id="openbutton" disabled>
             </form>
         </div>
         <div id="close-block">
