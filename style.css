@@ -161,6 +161,7 @@ all the button
 }
 
 .text-input {
+    vertical-align: middle;
     font-weight: bold;
     width: 48px;
     display: inline;
