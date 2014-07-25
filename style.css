@@ -117,10 +117,11 @@ all the button
 }
 
 .numbers {
-    width: 200px;
+    width: 245px;
     text-align: center;
     border: 2px solid #eeeeee;
-    padding: 10px 10px;
+    font-size: 2em;
+    padding: 2px;
     margin: 5px;
 }
 
