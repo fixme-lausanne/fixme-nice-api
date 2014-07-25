@@ -150,6 +150,10 @@ all the button
     100% { text-indent: -100% }
 }
 
+.block-status {
+    min-height: 220px;
+}
+
 #open-block,
 #close-block,
 #msg-block {
