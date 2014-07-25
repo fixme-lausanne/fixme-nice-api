@@ -18,20 +18,18 @@
         <div id="msg-block" class="lead"></div>
         <div id="open-block">
             <form name="hoursform" id="hoursform">
-                <span id="btn-plus" class="glyphicon glyphicon-minus-sign" onclick="changeHour(0)"></span>
-                <input id="hours" name="hours" size="2" class="form-control input-lg text-input" maxlength="2"
-                    onkeyup="checkHours(this)" value="1">
-                <span class="glyphicon glyphicon-plus-sign" onclick="changeHour(1)"></span>
-                <input type="button" onclick="openSpace()" value="Open"
-                    class="btn btn-default btn-lg btn-open" id="openbutton" disabled>
+                <span id="btn-minus" class="glyphicon glyphicon-minus-sign"></span>
+                <input id="hours" name="hours" size="2"
+                    class="form-control input-lg text-input" maxlength="2" value="1">
+                <span id="btn-plus" class="glyphicon glyphicon-plus-sign"></span>
+                <input type="button" value="Open"
+                    class="btn btn-default btn-lg" id="btn-open" disabled>
             </form>
         </div>
         <div id="close-block">
             <form>
-                <input type="button" onclick="closeSpace()" value="Close"
-                    class="btn btn-default">
-                <input type="button" onclick="openSpace(true)" value="Extend"
-                    class="btn btn-default">
+                <input type="button" value="Close" class="btn btn-default" id="btn-close">
+                <input type="button" value="Extend" class="btn btn-default" id="btn-extend">
                 <br>
                 <p>The space is still open for:</p>
                 <div class="numbers">
@@ -49,28 +47,22 @@
 
     <div class="col-md-6">
         <h2>LED Lights</h2>
-        <input class="btn btn-lg btn-danger btn-red" type="button" onclick="switchTheLightColor('red')" value="RED">
-        <input class="btn btn-lg btn-success" type="button" onclick="switchTheLightColor('green')" value="GREEN">
-        <input class="btn btn-lg btn-primary" type="button" onclick="switchTheLightColor('blue')" value="BLUE">
-        <input class="btn btn-lg btn-default" type="button" onclick="switchTheLightOn()" value="WHITE">
-        <input class="btn btn-lg btn-default" type="button" onclick="switchTheLightOff()" value="OFF">
-        <input class="btn btn-lg btn-warning" type="button" onclick="switchTheLightToPolice()" value="Police!">
+        <input id="btn-red" class="btn btn-lg btn-danger btn-red" type="button" value="RED">
+        <input id="btn-green" class="btn btn-lg btn-success" type="button" value="GREEN">
+        <input id="btn-blue" class="btn btn-lg btn-primary" type="button" value="BLUE">
+        <input id="btn-white" class="btn btn-lg btn-default" type="button" value="WHITE">
+        <input id="btn-off" class="btn btn-lg btn-default" type="button" value="OFF">
+        <input id="btn-police" class="btn btn-lg btn-warning" type="button" value="Police!">
         <br/>
         <div id="breathBox">
             <h3 for="breathSlider">Breathing leds:</h3>
-            <input type="range" value=0 min=0 max=5000 step=10
-                onchange="changeBreathSpeed()" onmouseup="setTheBreathSpeed()"
-                id="breathSlider">
+            <input type="range" value=0 min=0 max=5000 step=10 id="breathSlider">
             <span id="breathValue">0 ms</span>
         </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="main.js"></script>
-<script type="text/javascript" src="https://konami-js.googlecode.com/svn/trunk/konami.js"></script>
-<script type="text/javascript">
-konami = new Konami()
-konami.load("https://www.youtube.com/watch?v=1Wytn-_MSBo");
-</script>
+<script src="https://konami-js.googlecode.com/svn/trunk/konami.js"></script>
+<script src="main.js"></script>
 </body></html>

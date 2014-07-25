@@ -23,7 +23,7 @@ function displayError(err) {
 function checkHours() {
     var hoursForm = $('#hours');
     var hoursOpen = Math.floor(hoursForm.val());
-    var openButton = $('#openbutton');
+    var openButton = $('#btn-open');
     if (isNaN(hoursOpen) || hoursOpen < 1) {
         openButton.attr('disabled', 'disabled');
     } else {
@@ -84,14 +84,6 @@ function launchAutoRefresh() {
     update_date(calcDiff(closing_time))
   }, 300);
 }
-
-function onPageLoad() {
-    "use strict";
-    launchAutoRefresh();
-    updateSpaceInformation();
-    setInterval(updateSpaceInformation, 60 * 1000);
-}
-
 
 function openSpace(extend) {
     "use strict";
@@ -154,7 +146,7 @@ function update_date(date) {
 function switchTheLight(red, green, blue) {
     $.ajax(url_led, {
         type: 'POST',
-        data: {red: red, green: green, blue: blue, breathe: slider.value.substring(0, -3)},
+        data: {red: red, green: green, blue: blue, breathe: slider.val().substring(0, -3)},
     });
 }
 
@@ -165,7 +157,7 @@ function changeBreathSpeed(){
 function setTheBreathSpeed() {
     $.ajax(url_led, {
         type: 'POST',
-        data: {breathe: slider.value.substring(0, -3)},
+        data: {breathe: slider.val().substring(0, -3)},
     });
 }
 
@@ -216,6 +208,32 @@ var Police = {
 };
 
 $(document).ready(function(){
-    onPageLoad();
+    "use strict";
+    // Leds buttons
+    $('#btn-red').click(function(){ switchTheLightColor('red'); });
+    $('#btn-green').click(function(){ switchTheLightColor('green'); });
+    $('#btn-blue').click(function(){ switchTheLightColor('blue'); });
+    $('#btn-white').click(function(){ switchTheLightOn() ; });
+    $('#btn-off').click(function(){ switchTheLightOff(); });
+    $('#btn-police').click(function(){ switchTheLightToPolice(); });
+    $('#breathSlider').change(function(){ changeBreathSpeed(); });
+    $('#breathSlider').mouseup(function(){ setTheBreathSpeed(); });
+
+    // Open/Close buttons
+    $('#btn-minus').click(function(){ changeHour(0); });
+    $('#btn-plus').click(function(){ changeHour(1); });
+    $('#btn-open').click(function(){ openSpace(); });
+    $('#btn-extend').click(function(){ openSpace(1); });
+    $('#btn-close').click(function(){ closeSpace(); });
+    $('#hours').keyup(function(){ checkHours(); });
+
+    // Set up trigger
+    launchAutoRefresh();
+    updateSpaceInformation();
+    setInterval(updateSpaceInformation, 60 * 1000);
+
+    // Egging
+    var konami = new Konami();
+    konami.load("https://www.youtube.com/watch?v=1Wytn-_MSBo");
 });
 

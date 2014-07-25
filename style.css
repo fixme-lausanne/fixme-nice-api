@@ -93,7 +93,7 @@ all the button
     margin: 5px 5px 0 0;
 }
 
-.btn-open {
+#btn-open {
     display: block;
     margin-top: 20px;
 }
@@ -162,3 +162,4 @@ all the button
     text-align: center;
     padding: 0px;
 }
+
