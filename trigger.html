@@ -10,9 +10,11 @@
   <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
-<div id="container" class="row">
+<div id="container">
+
     <h1><a href="?">FIXME Control</a></h1>
 
+    <div class="row">
     <div class="col-md-5">
         <h2>Trigger status</h2>
         <div id="msg-block" class="lead"></div>
@@ -46,17 +48,20 @@
 
     <div class="col-md-7">
         <h2>LED Lights</h2>
-        <input id="btn-red" class="btn btn-lg btn-danger btn-red" type="button" value="RED">
-        <input id="btn-green" class="btn btn-lg btn-success" type="button" value="GREEN">
-        <input id="btn-blue" class="btn btn-lg btn-primary" type="button" value="BLUE">
-        <input id="btn-police" class="btn btn-lg btn-warning" type="button" value="Police!">
-        <input id="btn-off" class="btn btn-lg btn-default" type="button" value="OFF">
-        <input id="btn-white" class="btn btn-lg btn-default" type="button" value="ON">
+        <div class="btn-group-lg">
+            <input id="btn-red" class="btn btn-danger btn-red" type="button" value="RED">
+            <input id="btn-green" class="btn btn-success" type="button" value="GREEN">
+            <input id="btn-blue" class="btn btn-primary" type="button" value="BLUE">
+            <input id="btn-police" class="btn btn-warning" type="button" value="Police!">
+            <input id="btn-off" class="btn btn-default" type="button" value="OFF">
+            <input id="btn-white" class="btn btn-default" type="button" value="ON">
+        </div>
         <div id="breathBox">
-            <h3 for="breathSlider">Breathing leds:</h3>
+            <h3 for="breathSlider">Breathing leds</h3>
             <input type="range" value=0 min=0 max=5000 step=10 id="breathSlider">
             <span id="breathValue">0 ms</span>
         </div>
+    </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
