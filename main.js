@@ -7,6 +7,7 @@ var url_twitter = "https://fixme.ch/cgi-bin/twitter.pl";
 var url_api = "https://fixme.ch/status.json";
 var url_led = "http://led.fixme.ch/rgb/";
 
+var updateBlock=  $("#update-block");
 var msgBlock   =  $("#msg-block");
 var loadBlock  =  $("#loading-block");
 var closeBlock =  $("#close-block");
@@ -16,7 +17,6 @@ var slider     =  $("#breathSlider");
 function displayError(err) {
     "use strict";
     loadBlock.hide();
-    msgBlock.show();
     msgBlock.text("Error connecting to fixme server: "+ err);
 }
 
@@ -64,7 +64,6 @@ function updateSpaceInformation() {
         var date = new Date(data.state.lastchange * 1000);
         updateBlock.html('Last update: ' + date.toDateString());
         msgBlock.html(data.state.message);
-        msgBlock.show();
         loadBlock.hide();
         checkHours();
     });
@@ -209,6 +208,10 @@ var Police = {
 };
 
 $(document).ready(function(){
+
+    msgBlock.show();
+    updateBlock.show();
+
     "use strict";
     // Leds buttons
     $('#btn-red').click(function(){ switchTheLightColor('red'); });
