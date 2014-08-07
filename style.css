@@ -155,6 +155,7 @@ all the button
     min-height: 220px;
 }
 
+#update-block,
 #open-block,
 #close-block,
 #msg-block {

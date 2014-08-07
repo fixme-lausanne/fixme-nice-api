@@ -61,7 +61,8 @@ function updateSpaceInformation() {
             closeBlock.hide();
             document.hoursform.hours.focus();
         }
-
+        var date = new Date(data.state.lastchange * 1000);
+        updateBlock.html('Last update: ' + date.toDateString());
         msgBlock.html(data.state.message);
         msgBlock.show();
         loadBlock.hide();
