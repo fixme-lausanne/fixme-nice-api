@@ -91,6 +91,7 @@ all the button
     width: 120px;
     height: 64px;
     margin: 0 0 5px 0;
+    font-size: 1.6em !important;
 }
 
 #btn-open {
