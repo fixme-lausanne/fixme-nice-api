@@ -42,6 +42,10 @@ function changeHour(inc) {
     checkHours();
 }
 
+function pad(n) {
+    return ("0" + n).slice(-2);
+}
+
 function updateSpaceInformation() {
     "use strict";
     loadBlock.show();
@@ -61,8 +65,10 @@ function updateSpaceInformation() {
             closeBlock.hide();
             document.hoursform.hours.focus();
         }
-        var date = new Date(data.state.lastchange * 1000);
-        updateBlock.html('Last update: ' + date.toDateString());
+        updateBlock.html('Last update:<br/>'
+            + closing_time.toDateString()
+            + ' ' + pad(closing_time.getHours())
+            + ':' + pad(closing_time.getMinutes()));
         msgBlock.html(data.state.message);
         loadBlock.hide();
         checkHours();
