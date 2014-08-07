@@ -162,6 +162,10 @@ all the button
     display: none;
 }
 
+#update-block {
+    font-size: 1.1em;
+}
+
 .text-input {
     vertical-align: middle;
     font-weight: bold;
