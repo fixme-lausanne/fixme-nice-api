@@ -152,7 +152,7 @@ function update_date(date) {
 function switchTheLight(red, green, blue) {
     $.ajax(url_led, {
         type: 'POST',
-        data: {red: red, green: green, blue: blue, breathe: slider.val().substring(0, -3)},
+        data: {red: red, green: green, blue: blue, breathe: slider.val()},
     });
 }
 
