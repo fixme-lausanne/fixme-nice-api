@@ -163,7 +163,7 @@ function changeBreathSpeed(){
 function setTheBreathSpeed() {
     $.ajax(url_led, {
         type: 'POST',
-        data: {breathe: slider.val().substring(0, -3)},
+        data: {breathe: slider.val()},
     });
 }
 
