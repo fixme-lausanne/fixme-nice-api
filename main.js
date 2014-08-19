@@ -21,6 +21,7 @@ function displayError(err) {
 }
 
 function checkHours() {
+    "use strict";
     var hoursForm = $('#hours');
     var hoursOpen = Math.floor(hoursForm.val());
     var openButton = $('#btn-open');
@@ -43,6 +44,7 @@ function changeHour(inc) {
 }
 
 function pad(n) {
+    "use strict";
     return ("0" + n).slice(-2);
 }
 
@@ -76,6 +78,7 @@ function updateSpaceInformation() {
 }
 
 function calcDiff() {
+    "use strict";
     if(closing_time == undefined) return new Date(0);
     var diff_time = Number(closing_time.getTime()) - new Date().getTime();
     if (diff_time > 0) {
@@ -86,9 +89,10 @@ function calcDiff() {
 }
 
 function launchAutoRefresh() {
-  setInterval(function () {
-    update_date(calcDiff(closing_time))
-  }, 300);
+    "use strict";
+    setInterval(function () {
+        update_date(calcDiff(closing_time))
+    }, 300);
 }
 
 function openSpace(extend) {
@@ -150,6 +154,7 @@ function update_date(date) {
 }
 
 function switchTheLight(red, green, blue) {
+    "use strict";
     $.ajax(url_led, {
         type: 'POST',
         data: {red: red, green: green, blue: blue, breathe: slider.val()},
@@ -157,10 +162,12 @@ function switchTheLight(red, green, blue) {
 }
 
 function changeBreathSpeed(){
+    "use strict";
     $('#breathValue').text(slider.val() + ' ms');
 }
 
 function setTheBreathSpeed() {
+    "use strict";
     $.ajax(url_led, {
         type: 'POST',
         data: {breathe: slider.val()},
@@ -168,6 +175,7 @@ function setTheBreathSpeed() {
 }
 
 function switchTheLightColor(color) {
+    "use strict";
     Police.switchOff();
     switch(color) {
         case 'red':
@@ -194,6 +202,7 @@ function switchTheLightOff() {
 }
 
 function switchTheLightToPolice() {
+    "use strict";
     Police.switchOn()
 }
 
@@ -214,11 +223,11 @@ var Police = {
 };
 
 $(document).ready(function(){
+    "use strict";
 
     msgBlock.show();
     updateBlock.show();
 
-    "use strict";
     // Leds buttons
     $('#btn-red').click(function(){ switchTheLightColor('red'); });
     $('#btn-green').click(function(){ switchTheLightColor('green'); });
