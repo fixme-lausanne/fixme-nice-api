@@ -226,8 +226,8 @@ $(document).ready(function(){
     $('#btn-white').click(function(){ switchTheLightOn() ; });
     $('#btn-off').click(function(){ switchTheLightOff(); });
     $('#btn-police').click(function(){ switchTheLightToPolice(); });
-    $('#breathSlider').change(function(){ changeBreathSpeed(); });
     $('#breathSlider').mouseup(function(){ setTheBreathSpeed(); });
+    $('#breathSlider').on('change mousemove', function(){ changeBreathSpeed(); });
 
     // Open/Close buttons
     $('#btn-minus').click(function(){ changeHour(0); });
