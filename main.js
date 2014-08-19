@@ -210,15 +210,18 @@ var Police = {
     policeEvent: 0,
     delay: 100,
     switchOff: function switchOff() {
-        window.clearInterval(Police.policeEvent)
+        window.clearInterval(Police.policeEvent);
+        Police.policeEvent = 0;
     },
     switchOn: function switchOn(red) {
-        if (red) {
-            switchTheLight(255, 0, 0);
-        } else {
-            switchTheLight(0, 0, 255);
+        if(Police.policeEvent != 0) {
+            if (red) {
+                switchTheLight(255, 0, 0);
+            } else {
+                switchTheLight(0, 0, 255);
+            }
         }
-        Police.policeEvent = window.setTimeout(function() { Police.switchOn(!red)}, Police.delay)
+        Police.policeEvent = window.setTimeout(function() { Police.switchOn(!red)}, Police.delay);
     },
 };
 
