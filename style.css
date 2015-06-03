@@ -26,6 +26,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+body.dark {
+  color: #DFDFDF;
+}
+
 header {
   display: inline-block;
   height: 10%;
@@ -52,6 +56,10 @@ header h1 {
     height: 90%;
     background-color: rgb(245, 245, 245);
     padding: 10px 25px;
+}
+
+body.dark .container {
+  background-color: rgb(40, 40, 40);
 }
 
 ul {
@@ -179,7 +187,7 @@ all the button
 }
 
 #update-block {
-    font-size: 1.2em;
+  display: inline-block;
 }
 
 .text-input {
