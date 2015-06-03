@@ -7,23 +7,6 @@ font-family: 'Nixie One', sans-serif; // Text
 font-family: 'VT323', monospace; // Fun
 */
 
-/*
-simple way to have an unified background that cover all the screen.
-*/
-
-* {
-    font-family: 'Nixie One', sans-serif;
-    color: #eeeeee;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 html {
     width: 100%;
     height: 100%;
@@ -37,18 +20,59 @@ body {
     background-size: contain;
     background-position: right;
     background-attachment:fixed;
+    font-size: 1.7rem;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-p {
-    margin: 10px 0;
+body.dark {
+  color: #DFDFDF;
 }
 
-#container {
+header {
+  display: inline-block;
+  height: 10%;
+  width: 100%;
+  max-height: 80px;
+
+  background-color: black;
+  box-shadow: 0 0 8px black;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+header h1 {
+  background-color: black;
+  text-align: center;
+  margin: 0;
+}
+
+.container {
     margin: auto;
     max-width: 800px;
-    min-height: 100%;
-    background-color: rgba(50, 50, 50, 0.8);
+    min-height: 90%;
+    height: 90%;
+    background-color: rgb(245, 245, 245);
     padding: 10px 25px;
+}
+
+body.dark .container {
+  background-color: rgb(40, 40, 40);
+}
+
+ul {
+  width: 50%;
+  margin-left: 20%;
+}
+
+li {
+  list-style: none;
+}
+
+li a {
+  float: right;
 }
 
 /*
@@ -163,7 +187,7 @@ all the button
 }
 
 #update-block {
-    font-size: 1.2em;
+  display: inline-block;
 }
 
 .text-input {
@@ -176,3 +200,11 @@ all the button
     margin: 0 5px;
 }
 
+
+/* small screen */
+@media(max-width: 768px) {
+  ul {
+    width: 80%;
+    margin-left: 0;
+  }
+}
