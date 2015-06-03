@@ -1,73 +1,84 @@
 <!DOCTYPE html>
- <html lang="en">
-<head>
-  <title>FIXME Control</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="lib/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
-<div id="container">
+<html lang="en">
+  <head>
+    <title>FIXME Control</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  </head>
 
-    <h1><a href="?">FIXME Control</a></h1>
+  <body class="dark">
+    <header>
+      <h1><a href="http://trigger.fixme.ch">trigger.fixme.ch</a></h1>
+    </header>
 
-    <div class="row">
-    <div class="col-md-5 block-status">
-        <h2>Trigger status</h2>
-        <div id="msg-block" class="lead"></div>
-        <div id="update-block" class="lead"></div>
-        <div id="open-block">
+    <!-- .container -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-5 block-status">
+          <h2>Trigger status</h2>
+          <div id="msg-block"></div>
+          <div id="update-block"></div>
+
+          <div id="open-block">
             <form name="hoursform" id="hoursform">
-                <span id="btn-minus" class="glyphicon glyphicon-minus-sign"></span>
-                <input id="hours" name="hours" size="2"
-                    class="form-control input-lg text-input" maxlength="2" value="1">
-                <span id="btn-plus" class="glyphicon glyphicon-plus-sign"></span>
-                <input type="button" value="Open"
-                    class="btn btn-default btn-lg" id="btn-open" disabled>
+              <span id="btn-minus" class="glyphicon glyphicon-minus-sign"></span>
+              <input id="hours" name="hours" size="2"
+                     class="form-control input-lg text-input" maxlength="2" value="1">
+              <span id="btn-plus" class="glyphicon glyphicon-plus-sign"></span>
+              <input type="button" value="Open"
+                     class="btn btn-default btn-lg" id="btn-open" disabled>
             </form>
-        </div>
-        <div id="close-block">
+          </div>
+
+          <div id="close-block">
             <form>
-                <input type="button" value="Close" class="btn btn-default" id="btn-close">
-                <input type="button" value="Extend" class="btn btn-default" id="btn-extend">
-                <p>The space is still open for:</p>
-                <div class="numbers">
-                    <span class="number" id="hour">21</span>
-                    <span class="separator"></span>
-                    <span class="number" id="minute">45</span>
-                    <span class="separator"></span>
-                    <span class="number" id="second">38</span>
-                </div>
+              <input type="button" value="Close" class="btn btn-default" id="btn-close">
+              <input type="button" value="Extend" class="btn btn-default" id="btn-extend">
+              <p>The space is still open for:</p>
+              <div class="numbers">
+                <span class="number" id="hour">21</span>
+                <span class="separator"></span>
+                <span class="number" id="minute">45</span>
+                <span class="separator"></span>
+                <span class="number" id="second">38</span>
+              </div>
             </form>
+          </div>
+
+          <div id="loading-block"><p>Loading ...</p></div>
         </div>
 
-        <div id="loading-block"><p>Loading ...</p></div>
-    </div>
-
-    <div class="col-md-7">
-        <h2>LED Lights</h2>
-        <div class="btn-group-lg">
+        <div class="col-md-7">
+          <h2>LED Lights</h2>
+          <div class="btn-group-lg">
             <input id="btn-red" class="btn btn-danger btn-red" type="button" value="RED">
             <input id="btn-green" class="btn btn-success" type="button" value="GREEN">
             <input id="btn-blue" class="btn btn-primary" type="button" value="BLUE">
             <input id="btn-police" class="btn btn-warning" type="button" value="Police!">
             <input id="btn-off" class="btn btn-default" type="button" value="OFF">
             <input id="btn-white" class="btn btn-default" type="button" value="ON">
-        </div>
-        <div id="breathBox">
+          </div>
+          <div id="breathBox">
             <h3 for="breathSlider">Breathing leds</h3>
             <input type="range" value="0" min="0" max="5000" step="100" id="breathSlider">
             <span id="breathValue">0 ms</span>
+          </div>
         </div>
-    </div>
-    </div>
-</div>
 
-<script src="lib/jquery.min.js"></script>
-<script src="lib/bootstrap.min.js"></script>
-<script src="lib/konami.js"></script>
-<script src="main.js"></script>
-</body></html>
+      </div>
+
+    </div>
+    <!-- end .container -->
+
+    <!-- js -->
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/konami.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
