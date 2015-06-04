@@ -217,23 +217,39 @@
         msgBlock.show();
         updateBlock.show();
 
-        // Leds buttons
-        $('#btn-red').click(function(){ switchTheLightColor('red'); });
-        $('#btn-green').click(function(){ switchTheLightColor('green'); });
-        $('#btn-blue').click(function(){ switchTheLightColor('blue'); });
-        $('#btn-white').click(function(){ switchTheLightOn() ; });
-        $('#btn-off').click(function(){ switchTheLightOff(); });
-        $('#btn-police').click(function(){ switchTheLightToPolice(); });
-        $('#breathSlider').mouseup(function(){ setTheBreathSpeed(); });
+        // LEDs
+        var ledsButtons = {
+            red: switchTheLightColor.bind(null, 'red'),
+            green: switchTheLightColor.bind(null, 'green'),
+            blue: switchTheLightColor.bind(null, 'blue'),
+            white: switchTheLightOn,
+            off: switchTheLightOff,
+            police: switchTheLightToPolice
+        };
+
+        Object.keys(ledsButtons).forEach(function(buttonName) {
+            var fn = ledsButtons[buttonName];
+            $('#btn-' + buttonName).click(fn);
+        });
+
+        $('#breathSlider').mouseup(setTheBreathSpeed());
         $('#breathSlider').on('change mousemove', function(){ changeBreathSpeed(); });
 
         // Open/Close buttons
-        $('#btn-minus').click(function(){ changeHour(0); });
-        $('#btn-plus').click(function(){ changeHour(1); });
-        $('#btn-open').click(function(){ openSpace(); });
-        $('#btn-extend').click(function(){ openSpace(1); });
-        $('#btn-close').click(function(){ closeSpace(); });
-        $('#hours').keyup(function(){ checkHours(); });
+        var triggerButtons = {
+            minus: changeHour.bind(null, 0),
+            plus: changeHour.bind(null, 1),
+            open: openSpace,
+            extend: openSpace.bind(null, 1),
+            close: closeSpace
+        };
+
+        Object.keys(triggerButtons).forEach(function(buttonName) {
+            var fn = triggerButtons[buttonName];
+            $('#btn-' + buttonName).click(fn);
+        });
+
+        $('#hours').keyup(checkHours);
 
         // Set up trigger
         launchAutoRefresh();
