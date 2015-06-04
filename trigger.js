@@ -213,51 +213,49 @@
         },
     };
 
-    $(document).ready(function(){
-        msgBlock.show();
-        updateBlock.show();
 
-        // LEDs
-        var ledsButtons = {
-            red: switchTheLightColor.bind(null, 'red'),
-            green: switchTheLightColor.bind(null, 'green'),
-            blue: switchTheLightColor.bind(null, 'blue'),
-            white: switchTheLightOn,
-            off: switchTheLightOff,
-            police: switchTheLightToPolice
-        };
+    msgBlock.show();
+    updateBlock.show();
 
-        Object.keys(ledsButtons).forEach(function(buttonName) {
-            var fn = ledsButtons[buttonName];
-            $('#btn-' + buttonName).click(fn);
-        });
+    // LEDs
+    var ledsButtons = {
+        red: switchTheLightColor.bind(null, 'red'),
+        green: switchTheLightColor.bind(null, 'green'),
+        blue: switchTheLightColor.bind(null, 'blue'),
+        white: switchTheLightOn,
+        off: switchTheLightOff,
+        police: switchTheLightToPolice
+    };
 
-        $('#breathSlider').mouseup(setTheBreathSpeed());
-        $('#breathSlider').on('change mousemove', function(){ changeBreathSpeed(); });
-
-        // Open/Close buttons
-        var triggerButtons = {
-            minus: changeHour.bind(null, 0),
-            plus: changeHour.bind(null, 1),
-            open: openSpace,
-            extend: openSpace.bind(null, 1),
-            close: closeSpace
-        };
-
-        Object.keys(triggerButtons).forEach(function(buttonName) {
-            var fn = triggerButtons[buttonName];
-            $('#btn-' + buttonName).click(fn);
-        });
-
-        $('#hours').keyup(checkHours);
-
-        // Set up trigger
-        launchAutoRefresh();
-        updateSpaceInformation();
-        setInterval(updateSpaceInformation, 60 * 1000);
-
-        // Egging
-        var konami = new Konami();
-        konami.load("https://www.youtube.com/watch?v=1Wytn-_MSBo");
+    Object.keys(ledsButtons).forEach(function(buttonName) {
+        var fn = ledsButtons[buttonName];
+        $('#btn-' + buttonName).click(fn);
     });
+
+    $('#breathSlider').mouseup(setTheBreathSpeed());
+    $('#breathSlider').on('change mousemove', function(){ changeBreathSpeed(); });
+
+    // Open/Close buttons
+    var triggerButtons = {
+        minus: changeHour.bind(null, 0),
+        plus: changeHour.bind(null, 1),
+        open: openSpace,
+        extend: openSpace.bind(null, 1),
+        close: closeSpace
+    };
+
+    Object.keys(triggerButtons).forEach(function(buttonName) {
+        var fn = triggerButtons[buttonName];
+        $('#btn-' + buttonName).click(fn);
+    });
+
+    $('#hours').keyup(checkHours);
+
+    // Set up trigger
+    launchAutoRefresh();
+    updateSpaceInformation();
+    setInterval(updateSpaceInformation, 60 * 1000);
+
+    // Egging
+    (new Konami()).load("https://www.youtube.com/watch?v=1Wytn-_MSBo");
 })(jQuery, Konami);
