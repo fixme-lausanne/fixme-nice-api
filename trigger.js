@@ -239,7 +239,7 @@
     var triggerButtons = {
         minus: changeHour.bind(null, 0),
         plus: changeHour.bind(null, 1),
-        open: openSpace,
+        open: openSpace.bind(null, 0),
         extend: openSpace.bind(null, 1),
         close: closeSpace
     };
